@@ -7,23 +7,39 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+// Przekierowywanie do galerii
 Route::get('/galeria', function () {
     return view('gallery');
 })->name('gallery');
 
+Route::get('/ogloszenia', function () {
+    return view('news');
+})->name('news');
+
+// Przekierowywanie do kontaktów
 Route::get('/kontakt', function () {
     return view('contact');
 })->name('contact');
 
+// Grupa komponentów usług
 Route::prefix('uslugi')->group(function () {
+
+    // Przekierowywanie do szczepień
     Route::get('/szczepienie', function () {
         return view('services.vaccination');
     })->name('uslugi.szczepienie');
 
+    // Przekierowywanie do rehabilitacji
     Route::get('/rehabilitacja', function () {
         return view('services.rehabilitation');
     })->name('uslugi.rehabilitacja');
 });
+
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
