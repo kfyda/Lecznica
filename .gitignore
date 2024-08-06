@@ -21,5 +21,3 @@ yarn-error.log
 postcss.config.js
 tailwind.config.js
 vite.config.js
-package.json
-package-lock.json
