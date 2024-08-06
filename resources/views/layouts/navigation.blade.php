@@ -16,23 +16,23 @@
                         {{ __('Galeria') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('news')" :active="request()->routeIs('news')">
+                    <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
                         {{ __('Ogłoszenia') }}
                     </x-nav-link>
 
-                    <x-dropdown align="left" width="48" :active="request()->routeIs('uslugi.*')">
+                    <x-dropdown align="left" width="48" :active="request()->routeIs('services.*')">
                         <x-slot name="trigger">
-                            <button class="text-md leading-5 font-medium text-gray-500 dark:text-green-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                            <button class="text-md leading-5 font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                                 <div>Usługi</div>
                             </button>
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('uslugi.szczepienie')" :active="request()->routeIs('uslugi.szczepienie')">
+                            <x-dropdown-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')">
                                 {{ __('Szczepienie') }}
                             </x-dropdown-link>
 
-                            <x-dropdown-link :href="route('uslugi.rehabilitacja')" :active="request()->routeIs('uslugi.rehabilitacja')">
+                            <x-dropdown-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')">
                                 {{ __('Rehabilitacja') }}
                             </x-dropdown-link>
                         </x-slot>
@@ -87,11 +87,11 @@
                 {{ __('Galeria') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('news')" :active="request()->routeIs('news')">
+            <x-responsive-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
                 {{ __('Ogłoszenia') }}
             </x-responsive-nav-link>
 
-            <x-responsive-dropdown x-data="{openDropdown: false}" :active="request()->routeIs('uslugi.*')">
+            <x-responsive-dropdown x-data="{openDropdown: false}" :active="request()->routeIs('services.*')">
                 <x-slot:trigger>
                     <button @click="openDropdown = ! openDropdown" class="flex items-center">
                         <div>Usługi</div>
@@ -99,10 +99,10 @@
                 </x-slot:trigger>
 
                 <x-slot:content>
-                    <x-responsive-nav-link :href="route('uslugi.szczepienie')" :active="request()->routeIs('uslugi.szczepienie')">
+                    <x-responsive-nav-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')">
                         {{ __('Szczepienie') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('uslugi.rehabilitacja')" :active="request()->routeIs('uslugi.rehabilitacja')">
+                    <x-responsive-nav-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')">
                         {{ __('Rehabilitacja') }}
                     </x-responsive-nav-link>
                 </x-slot:content>
@@ -114,7 +114,7 @@
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
+        <div class="pt-4 pb-1 border-t bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-600">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name ?? 'Gość' }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email ?? 'gosc@test.pl' }}</div>

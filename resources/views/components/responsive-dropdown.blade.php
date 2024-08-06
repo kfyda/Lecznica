@@ -26,7 +26,7 @@
          x-transition:leave="transition ease-in duration-75"
          x-transition:leave-start="opacity-100 scale-100"
          x-transition:leave-end="opacity-0 scale-95"
-         class="mt-2"
+         class="pt-2"
          style="display: none;"
          @click="open = false">
         <div class="ring-1 ring-black ring-opacity-5">

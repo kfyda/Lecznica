@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,9 +13,15 @@ Route::get('/galeria', function () {
     return view('gallery');
 })->name('gallery');
 
-Route::get('/ogloszenia', function () {
-    return view('news');
-})->name('news');
+Route::prefix('ogloszenia')
+    ->controller(NewsController::class)
+    ->name('news.')
+    ->group(function (){
+        Route::get('/', 'index')->name('index');
+
+        Route::get('/{news:slug}', 'show')->name('show');
+});
+
 
 // Przekierowywanie do kontaktów
 Route::get('/kontakt', function () {
@@ -22,17 +29,18 @@ Route::get('/kontakt', function () {
 })->name('contact');
 
 // Grupa komponentów usług
-Route::prefix('uslugi')->group(function () {
+Route::prefix('uslugi')
+    ->name('services.')
+    ->group(function () {
+        // Przekierowywanie do szczepień
+        Route::get('/szczepienie', function () {
+            return view('services.vaccination');
+        })->name('vaccination');
 
-    // Przekierowywanie do szczepień
-    Route::get('/szczepienie', function () {
-        return view('services.vaccination');
-    })->name('uslugi.szczepienie');
-
-    // Przekierowywanie do rehabilitacji
-    Route::get('/rehabilitacja', function () {
-        return view('services.rehabilitation');
-    })->name('uslugi.rehabilitacja');
+        // Przekierowywanie do rehabilitacji
+        Route::get('/rehabilitacja', function () {
+            return view('services.rehabilitation');
+        })->name('rehabilitation');
 });
 
 
