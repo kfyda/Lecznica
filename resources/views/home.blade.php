@@ -1,3 +1,3 @@
 <x-app-layout>
-    <h1 class="bg-green-500 text-2xl">Hello World!!!</h1>
+    <h1 class="bg-red-500 text-2xl">Co JEST??!!!</h1>
 </x-app-layout>
