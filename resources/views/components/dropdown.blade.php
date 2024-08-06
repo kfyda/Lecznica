@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700'])
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700', 'active'])
 
 @php
 $alignmentClasses = match ($align) {
@@ -7,6 +7,10 @@ $alignmentClasses = match ($align) {
     default => 'ltr:origin-top-right rtl:origin-top-left end-0',
 };
 
+$classes = ($active ?? false)
+            ? 'inline-flex items-center px-2 py-2 border-b-2 border-indigo-400 dark:border-indigo-600 text-md font-medium leading-5 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out'
+            : 'inline-flex items-center px-2 py-2 border-b-2 border-transparent text-md font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out';
+
 $width = match ($width) {
     '48' => 'w-48',
     default => $width,
@@ -14,7 +18,7 @@ $width = match ($width) {
 @endphp
 
 <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
-    <div @click="open = ! open">
+    <div @click="open = ! open" {{ $attributes->merge(['class' => $classes]) }}>
         {{ $trigger }}
     </div>
 

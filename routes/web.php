@@ -4,7 +4,25 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+})->name('home');
+
+Route::get('/galeria', function () {
+    return view('gallery');
+})->name('gallery');
+
+Route::get('/kontakt', function () {
+    return view('contact');
+})->name('contact');
+
+Route::prefix('uslugi')->group(function () {
+    Route::get('/szczepienie', function () {
+        return view('services.vaccination');
+    })->name('uslugi.szczepienie');
+
+    Route::get('/rehabilitacja', function () {
+        return view('services.rehabilitation');
+    })->name('uslugi.rehabilitacja');
 });
 
 Route::get('/dashboard', function () {
