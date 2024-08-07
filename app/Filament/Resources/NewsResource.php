@@ -12,12 +12,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class NewsResource extends Resource
 {
     protected static ?string $model = News::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+
+    protected static ?string $navigationLabel = 'Ogłoszenia';
 
     public static function form(Form $form): Form
     {
@@ -43,11 +47,16 @@ class NewsResource extends Resource
                 ]),
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcie')
-                    ->image(),
-                Forms\Components\Textarea::make('description')
+                    ->image()
+                    ->getUploadedFileNameForStorageUsing(
+                        fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
+                            ->prepend(now()->timestamp),
+                    )
+                    ->directory('news-images')
+                    ->preserveFilenames(),
+                Forms\Components\RichEditor::make('description')
                     ->label('Opis')
                     ->required()
-                    ->columns(10)
                     ->columnSpanFull(),
             ]);
     }
@@ -56,26 +65,29 @@ class NewsResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image_path')
+                    ->label('Zdjęcie'),
                 Tables\Columns\TextColumn::make('title')
+                    ->label('Tytuł ogłoszenia')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
-                Tables\Columns\ImageColumn::make('image_path'),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Data utworzenia')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label('Data aktualizacji')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])
+            ])->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

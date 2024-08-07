@@ -13,7 +13,9 @@ class NewsController extends Controller
      */
     public function index(): View
     {
-        $newsCollection = News::all();
+        $newsCollection = News::query()
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('news.index', compact('newsCollection'));
     }
