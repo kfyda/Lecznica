@@ -6,10 +6,10 @@
         </div>
 
         <!-- Centralne informacje -->
-        <div class="text-center mb-4 w-full md:w-1/3">
-            <h3 class="text-2xl font-bold mb-2">Lecznica Weterynaryjna "SOCZEK"</h3>
+        <div class="text-center mb-6 w-full md:w-1/3">
+            <h3 class="text-4xl font-bold mb-6">Lecznica Weterynaryjna "SOCZEK"</h3>
 {{--            <p class="text-sm">Zapewniamy najlepszą opiekę dla Twoich zwierząt</p>--}}
-            <p class="text-sm">Kotek, piesek, koń czy krowa się przy Soczku dobrze chowa...</p>
+            <p class="text-1xl">Kotek, piesek, koń czy krowa się przy Soczku dobrze chowa...</p>
         </div>
 
         <!-- Sekcja z danymi kontaktowymi -->
