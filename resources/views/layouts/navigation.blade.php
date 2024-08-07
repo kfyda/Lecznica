@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex sm:items-center">
-                    <x-nav-link :href="route('gallery')" :active="request()->routeIs('gallery')">
+                    <x-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')">
                         {{ __('Galeria') }}
                     </x-nav-link>
 
@@ -38,7 +38,7 @@
                         </x-slot>
                     </x-dropdown>
 
-                    <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
+                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
                         {{ __('Kontakt') }}
                     </x-nav-link>
                 </div>
@@ -83,7 +83,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="absolute z-51 left-0 w-full hidden sm:hidden">
         <div class="space-y-1">
-            <x-responsive-nav-link :href="route('gallery')" :active="request()->routeIs('gallery')">
+            <x-responsive-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')">
                 {{ __('Galeria') }}
             </x-responsive-nav-link>
 
@@ -108,7 +108,7 @@
                 </x-slot:content>
             </x-responsive-dropdown>
 
-            <x-responsive-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
+            <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
                 {{ __('Kontakt') }}
             </x-responsive-nav-link>
         </div>

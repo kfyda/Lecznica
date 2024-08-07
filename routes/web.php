@@ -10,8 +10,8 @@ Route::get('/', function () {
 
 // Przekierowywanie do galerii
 Route::get('/galeria', function () {
-    return view('gallery');
-})->name('gallery');
+    return view('gallery.index');
+})->name('gallery.index');
 
 Route::prefix('ogloszenia')
     ->controller(NewsController::class)
@@ -25,8 +25,8 @@ Route::prefix('ogloszenia')
 
 // Przekierowywanie do kontaktów
 Route::get('/kontakt', function () {
-    return view('contact');
-})->name('contact');
+    return view('contact.index');
+})->name('contact.index');
 
 // Grupa komponentów usług
 Route::prefix('uslugi')
