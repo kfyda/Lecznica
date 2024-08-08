@@ -13,11 +13,18 @@ class NewsController extends Controller
      */
     public function index(): View
     {
-        $newsCollection = News::query()
+        $recentNews = News::query()
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->first();
 
-        return view('news.index', compact('newsCollection'));
+        $newsCollection = News::query()
+            ->whereNot('id', '=', $recentNews->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(6);
+
+//        dd($newsCollection);
+
+        return view('news.index', compact('recentNews','newsCollection'));
     }
 
     /**
