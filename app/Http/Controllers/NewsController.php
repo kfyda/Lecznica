@@ -48,7 +48,12 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        return view('news.show', compact('news'));
+        $newsCollection = News::query()
+            ->whereNot('id', '=', $news->id)
+            ->orderBy('created_at', 'desc')
+            ->limit(4)
+            ->get();
+        return view('news.show', compact('news', 'newsCollection'));
     }
 
     /**
