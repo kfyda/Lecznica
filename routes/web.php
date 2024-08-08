@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -9,9 +10,7 @@ Route::get('/', function () {
 })->name('home');
 
 // Przekierowywanie do galerii
-Route::get('/galeria', function () {
-    return view('gallery.index');
-})->name('gallery.index');
+Route::get('/galeria', [GalleryController::class, 'index'])->name('gallery.index');
 
 Route::prefix('ogloszenia')
     ->controller(NewsController::class)

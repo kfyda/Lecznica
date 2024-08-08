@@ -4,11 +4,9 @@
 
         <section class="flex flex-wrap gap-2 w-full mt-6 p-6 justify-center">
             {{--Zdjęcia--}}
-            <div class="bg-red-500 w-80 h-80"></div>
-            <div class="bg-green-500 w-80 h-80"></div>
-            <div class="bg-blue-500 w-80 h-80"></div>
-            <div class="bg-yellow-500 w-80 h-80"></div>
-            <div class="bg-slate-500 w-80 h-80"></div>
+            @foreach($photos as $photo)
+                <img class="h-80" src="{{$photo->getURLImage()}}" alt="">
+            @endforeach
         </section>
     </div>
 </x-app-layout>
