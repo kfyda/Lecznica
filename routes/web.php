@@ -3,6 +3,7 @@
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -42,9 +43,7 @@ Route::prefix('uslugi')
         })->name('rehabilitation');
 });
 
-Route::get('/sklep', function () {
-    return view('shop.index');
-})->name('shop.index');
+Route::get('/sklep', [ShopController::class, 'index'])->name('shop.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
