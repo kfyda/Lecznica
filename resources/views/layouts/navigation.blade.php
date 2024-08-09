@@ -38,6 +38,10 @@
                         </x-slot>
                     </x-dropdown>
 
+                    <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')">
+                        {{ __('Sklep') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
                         {{ __('Kontakt') }}
                     </x-nav-link>
@@ -107,6 +111,10 @@
                     </x-responsive-nav-link>
                 </x-slot:content>
             </x-responsive-dropdown>
+
+            <x-responsive-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')">
+                {{ __('Sklep') }}
+            </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
                 {{ __('Kontakt') }}

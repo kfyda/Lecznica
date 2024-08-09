@@ -42,11 +42,9 @@ Route::prefix('uslugi')
         })->name('rehabilitation');
 });
 
-
-
-
-
-
+Route::get('/sklep', function () {
+    return view('shop.index');
+})->name('shop.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
