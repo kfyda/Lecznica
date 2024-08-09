@@ -13,7 +13,19 @@ class ShopController extends Controller
      */
     public function index(): View
     {
-        $items = Shop::all();
-        return view('shop.index', compact('items'));
+        return view('shop.index');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Shop $item)
+    {
+//        $newsCollection = News::query()
+//            ->whereNot('id', '=', $news->id)
+//            ->orderBy('created_at', 'desc')
+//            ->limit(4)
+//            ->get();
+        return view('shop.show', compact('item'));
     }
 }

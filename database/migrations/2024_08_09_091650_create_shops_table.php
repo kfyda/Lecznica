@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 32);
             $table->string('slug', 64);
-            $table->decimal('price', 4, 2);
+            $table->decimal('price', 6, 2);
             $table->longText('description');
             $table->string('image_path', 2048)->nullable();
             $table->boolean('is_available')->default(true);

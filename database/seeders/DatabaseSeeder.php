@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\News;
+use App\Models\Shop;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,5 +23,6 @@ class DatabaseSeeder extends Seeder
 //        ]);
 
         News::factory(20)->create();
+        Shop::factory(40)->create();
     }
 }

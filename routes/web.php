@@ -43,7 +43,13 @@ Route::prefix('uslugi')
         })->name('rehabilitation');
 });
 
-Route::get('/sklep', [ShopController::class, 'index'])->name('shop.index');
+Route::prefix('sklep')
+    ->controller(ShopController::class)
+    ->name('shop.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{item:slug}', 'show')->name('show');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

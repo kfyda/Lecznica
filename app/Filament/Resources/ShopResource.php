@@ -73,6 +73,8 @@ class ShopResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image_path')
+                    ->label('Zdjęcie'),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nazwa')
                     ->searchable(),
