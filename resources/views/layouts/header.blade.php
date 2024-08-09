@@ -1,11 +1,8 @@
-<main class="flex justify-center text-[#1e212b] bg-center bg-cover" style="background-image: url({{ asset('Images/kot1.jpg') }})">
-    {{--<main class="flex justify-center h-screen">--}}
-    <div class="flex flex-col space-y-10 p-6 select-none">
-        <h1 class="text-6xl text-white font-bold mt-[20vh]">Witamy na naszej stronie!</h1>
-        <h2 class="text-3xl text-white text-center">Sprawdź naszą ofertę</h2>
-        <div class="flex w-full justify-between">
-{{--            <x-nav-link class="text-xl text-white text-center bg-emerald-400 place-self-center p-4 rounded-md" title="Cennik" linkUrl="{{ route('price_list') }}" />--}}
-{{--            <x-nav-link class="text-xl text-white text-center bg-emerald-400 place-self-center p-4 rounded-md" title="Cennik" linkUrl="{{ route('rental') }}" />--}}
+<main class="flex justify-center items-center min-h-screen bg-cover bg-center text-[#1e212b]" style="background-image: url({{ asset('Images/kot2.jpeg') }})">
+    <div class="bg-[#00000080] rounded-lg p-8 md:p-12 max-w-4xl text-center space-y-8 select-none">
+        <h1 class="text-6xl text-white font-bold">Przychodnia weterynaryjna "Soczek"</h1>
+        <h2 class="text-3xl text-green-400">Lekarz Weterynarii Janusz Soczek</h2>
+        <div class="flex flex-wrap justify-center gap-4">
         </div>
     </div>
 </main>
