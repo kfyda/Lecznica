@@ -1,80 +1,54 @@
-<nav x-data="{ open: false }" class="sticky z-50 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="sticky top-0 z-50 bg-black w-full">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto">
-        <div class="flex justify-center h-20">
-            <div class="flex px-4">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
-                    </a>
-                </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex sm:items-center">
-                    <x-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')">
-                        {{ __('Galeria') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
-                        {{ __('Ogłoszenia') }}
-                    </x-nav-link>
-
-                    <x-dropdown align="left" width="48" :active="request()->routeIs('services.*')">
-                        <x-slot name="trigger">
-                            <button class="text-md leading-5 font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                                <div>Usługi</div>
-                            </button>
-                        </x-slot>
-
-                        <x-slot name="content">
-                            <x-dropdown-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')">
-                                {{ __('Szczepienie') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')">
-                                {{ __('Rehabilitacja') }}
-                            </x-dropdown-link>
-                        </x-slot>
-                    </x-dropdown>
-
-                    <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')">
-                        {{ __('Sklep') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
-                        {{ __('Kontakt') }}
-                    </x-nav-link>
-                </div>
+    <div class="w-full max-w-7xl mx-auto">
+        <div class="flex justify-between items-center h-20 px-4">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('Images/cat2.png') }}" alt="Logo kota" class="h-9 w-auto">
+                </a>
             </div>
 
-{{--            <!-- Settings Dropdown -->--}}
-{{--            <div class="hidden sm:flex sm:items-center sm:ms-6">--}}
-{{--                <x-dropdown align="right" width="48">--}}
-{{--                    <x-slot name="trigger">--}}
-{{--                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-md leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">--}}
-{{--                            <div>{{ Auth::user()->name ?? 'Gość' }}</div>--}}
+            <!-- Navigation Links -->
+            <div class="hidden space-x-8 sm:flex sm:items-center">
+                <x-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')" class="text-white hover:text-green-300">
+                    {{ __('Galeria') }}
+                </x-nav-link>
 
-{{--                            <div class="ms-1">--}}
-{{--                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">--}}
-{{--                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />--}}
-{{--                                </svg>--}}
-{{--                            </div>--}}
-{{--                        </button>--}}
-{{--                    </x-slot>--}}
+                <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')" class="text-white hover:text-green-300">
+                    {{ __('Ogłoszenia') }}
+                </x-nav-link>
 
-{{--                    <x-slot name="content">--}}
-{{--                        <x-dropdown-link :href="route('profile.edit')">--}}
-{{--                            {{ __('Profile') }}--}}
-{{--                        </x-dropdown-link>--}}
+                <x-dropdown align="left" width="48" :active="request()->routeIs('services.*')" class="text-white hover:text-green-300">
+                    <x-slot name="trigger">
+                        <button class="text-md leading-5 font-medium text-white bg-transparent hover:text-green-300 focus:outline-none transition ease-in-out duration-150">
+                            <div>Usługi</div>
+                        </button>
+                    </x-slot>
 
-{{--                    </x-slot>--}}
-{{--                </x-dropdown>--}}
-{{--            </div>--}}
+                    <x-slot name="content">
+                        <x-dropdown-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')" class="text-black hover:bg-green-100">
+                            {{ __('Szczepienie') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')" class="text-black hover:bg-green-100">
+                            {{ __('Rehabilitacja') }}
+                        </x-dropdown-link>
+                    </x-slot>
+                </x-dropdown>
+
+                <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')" class="text-white hover:text-green-300">
+                    {{ __('Sklep') }}
+                </x-nav-link>
+
+                <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')" class="text-white hover:text-green-300">
+                    {{ __('Kontakt') }}
+                </x-nav-link>
+            </div>
 
             <!-- Hamburger -->
-            <div class=" flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
+            <div class="flex items-center sm:hidden">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-green-300 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -85,17 +59,17 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="absolute z-51 left-0 w-full hidden sm:hidden">
-        <div class="space-y-1">
-            <x-responsive-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')">
+    <div :class="{'block': open, 'hidden': ! open}" class="absolute top-0 left-0 w-full bg-black bg-opacity-90 sm:hidden">
+        <div class="space-y-1 px-4 py-2">
+            <x-responsive-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')" class="text-white hover:text-green-300">
                 {{ __('Galeria') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
+            <x-responsive-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')" class="text-white hover:text-green-300">
                 {{ __('Ogłoszenia') }}
             </x-responsive-nav-link>
 
-            <x-responsive-dropdown x-data="{openDropdown: false}" :active="request()->routeIs('services.*')">
+            <x-responsive-dropdown x-data="{openDropdown: false}" :active="request()->routeIs('services.*')" class="text-white hover:text-green-300">
                 <x-slot:trigger>
                     <button @click="openDropdown = ! openDropdown" class="flex items-center">
                         <div>Usługi</div>
@@ -103,44 +77,44 @@
                 </x-slot:trigger>
 
                 <x-slot:content>
-                    <x-responsive-nav-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')">
+                    <x-responsive-nav-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')" class="text-white hover:text-green-300">
                         {{ __('Szczepienie') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')">
+                    <x-responsive-nav-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')" class="text-white hover:text-green-300">
                         {{ __('Rehabilitacja') }}
                     </x-responsive-nav-link>
                 </x-slot:content>
             </x-responsive-dropdown>
 
-            <x-responsive-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')">
+            <x-responsive-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')" class="text-white hover:text-green-300">
                 {{ __('Sklep') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
+            <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')" class="text-white hover:text-green-300">
                 {{ __('Kontakt') }}
             </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-600">
+        <div class="pt-4 pb-1 border-t bg-gray-800 border-gray-600">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name ?? 'Gość' }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email ?? 'gosc@test.pl' }}</div>
+                <div class="font-medium text-base text-white">{{ Auth::user()->name ?? 'Gość' }}</div>
+                <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email ?? 'gosc@test.pl' }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                <x-responsive-nav-link :href="route('profile.edit')" class="text-white hover:text-green-300">
+                    {{ __('Profil') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                    <x-responsive-nav-link :href="route('logout')" class="text-white hover:text-green-300"
+                                           onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Wyloguj się') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
