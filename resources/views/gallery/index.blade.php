@@ -10,8 +10,8 @@
         </section>
 
         <!-- Modal -->
-        <div id="myModal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
+        <div id="myModal" class="modal" onclick="closeModal(event)">
+            <span class="close" onclick="closeModal(event)">&times;</span>
             <img class="modal-content" id="modalImage">
             <a class="prev" onclick="changeImage(-1)">&#10094;</a>
             <a class="next" onclick="changeImage(1)">&#10095;</a>
@@ -88,15 +88,19 @@
 
         function openModal(index) {
             currentIndex = index;
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("modalImage");
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImage");
             modal.style.display = "block";
             modalImg.src = images[currentIndex].src;
+            document.addEventListener('keydown', handleKeydown);
         }
 
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
+        function closeModal(event) {
+            const modal = document.getElementById("myModal");
+            if (!event || event.target === modal || event.target.classList.contains('close')) {
+                modal.style.display = "none";
+                document.removeEventListener('keydown', handleKeydown);
+            }
         }
 
         function changeImage(direction) {
@@ -106,8 +110,18 @@
             } else if (currentIndex < 0) {
                 currentIndex = images.length - 1;
             }
-            var modalImg = document.getElementById("modalImage");
+            const modalImg = document.getElementById("modalImage");
             modalImg.src = images[currentIndex].src;
+        }
+
+        function handleKeydown(event) {
+            if (event.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeImage(1);
+            } else if (event.key === 'Escape') {
+                closeModal();
+            }
         }
     </script>
 </x-app-layout>
