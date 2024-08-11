@@ -14,23 +14,23 @@
             <div class="space-y-2">
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>poniedziałek:</strong></span>
-                    <span>08:00 - 17:00</span>
+                    <span>08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>wtorek:</strong></span>
-                    <span>08:00 - 17:00</span>
+                    <span>08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>środa:</strong></span>
-                    <span>08:00 - 17:00</span>
+                    <span>08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>czwartek:</strong></span>
-                    <span>08:00 - 17:00</span>
+                    <span>08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>piątek:</strong></span>
-                    <span>08:00 - 17:00</span>
+                    <span>08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>sobota:</strong></span>
