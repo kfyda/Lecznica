@@ -10,31 +10,32 @@ class ShopSearch extends Component
 {
     use WithPagination;
 
+    #[Url(history: true)]
     public string $search = '';
     public string $sortOption = 'latest'; // Domyślna opcja sortowania
 
     public function render()
     {
-        $query = Shop::query()
+        $items = Shop::query()
             ->search($this->search);
 
         switch ($this->sortOption) {
             case 'price_asc':
-                $query->orderBy('price', 'asc');
+                $items->orderBy('price', 'asc');
                 break;
             case 'price_desc':
-                $query->orderBy('price', 'desc');
+                $items->orderBy('price', 'desc');
                 break;
             case 'alphabetical':
-                $query->orderBy('name', 'asc');
+                $items->orderBy('name', 'asc');
                 break;
             case 'latest':
             default:
-                $query->orderBy('created_at', 'desc');
+                $items->orderBy('created_at', 'desc');
                 break;
         }
 
-        $items = $query->paginate(12);
+        $items = $items->paginate(12);
 
         return view('livewire.shop-search', compact('items'));
     }

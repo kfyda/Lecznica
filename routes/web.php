@@ -3,6 +3,7 @@
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,17 +31,10 @@ Route::get('/kontakt', function () {
 
 // Grupa komponentów usług
 Route::prefix('uslugi')
+    ->controller(ServiceController::class)
     ->name('services.')
     ->group(function () {
-        // Przekierowywanie do szczepień
-        Route::get('/szczepienie', function () {
-            return view('services.vaccination');
-        })->name('vaccination');
-
-        // Przekierowywanie do rehabilitacji
-        Route::get('/rehabilitacja', function () {
-            return view('services.rehabilitation');
-        })->name('rehabilitation');
+        Route::get('/{service:slug}', 'show')->name('show');
 });
 
 Route::prefix('sklep')
