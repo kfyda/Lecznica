@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="p-6">
-        <h1 class="text-[64px] text-green-500 text-center font-semibold underline underline-offset-[16px]">Ogłoszenia</h1>
+    <x-header title="Ogłoszenia" />
 
+    <div class="p-6">
         <div class="flex flex-col justify-center mt-6 p-6 space-y-12">
             {{--Ogłoszenia--}}
 

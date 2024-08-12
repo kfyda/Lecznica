@@ -1,40 +1,35 @@
 <x-app-layout>
-    <!-- Wyśrodkowany nagłówek -->
-    <div class="p-6 text-center">
-        <h1 class="text-6xl text-green-500 font-semibold underline underline-offset-4">
-            Kontakt
-        </h1>
-    </div>
+    <x-header title="Kontakt" />
 
     <!-- Kontener na godziny pracy i mapę -->
-    <div class="flex flex-col md:flex-row">
+    <div class="flex flex-col md:flex-row p-3 lg:p-6">
         <!-- Godziny pracy -->
         <div class="w-full md:w-1/2 p-6 bg-gray-100 border-r border-gray-300">
             <h2 class="text-2xl font-semibold mb-4 text-center">Godziny pracy</h2>
             <div class="space-y-2">
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>poniedziałek:</strong></span>
-                    <span>08:00 - 18:00</span>
+                    <span class="text-green-700">08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>wtorek:</strong></span>
-                    <span>08:00 - 18:00</span>
+                    <span class="text-green-700">08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>środa:</strong></span>
-                    <span>08:00 - 18:00</span>
+                    <span class="text-green-700">08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>czwartek:</strong></span>
-                    <span>08:00 - 18:00</span>
+                    <span class="text-green-700">08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>piątek:</strong></span>
-                    <span>08:00 - 18:00</span>
+                    <span class="text-green-700">08:00 - 18:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>sobota:</strong></span>
-                    <span>08:00 - 13:00</span>
+                    <span class="text-green-700">08:00 - 13:00</span>
                 </div>
                 <div class="flex justify-between px-4 py-2 bg-white shadow-sm rounded-md">
                     <span><strong>niedziela:</strong></span>
@@ -63,8 +58,8 @@
         </div>
 
         <!-- Mapa -->
-        <div class="w-full md:w-1/2 p-8 flex justify-center md:justify-end">
-            <div id="map" class="w-full md:w-[700px] h-[600px] bg-gray-200"></div>
+        <div class="w-1/2 md:w-1/2 p-6 flex justify-center md:justify-end">
+            <div id="map" class="w-full md:w-[800px] h-[600px] bg-gray-200"></div>
         </div>
     </div>
 
