@@ -58,8 +58,8 @@
         </div>
 
         <!-- Mapa -->
-        <div class="w-1/2 md:w-1/2 p-6 flex justify-center md:justify-end">
-            <div id="map" class="w-full md:w-[800px] h-[600px] bg-gray-200"></div>
+        <div class="w-full md:w-1/2 p-6 flex justify-center md:justify-end">
+            <div id="map" class="w-full h-[400px] md:w-[800px] md:h-[600px] bg-gray-200"></div>
         </div>
     </div>
 
