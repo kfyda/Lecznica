@@ -78,7 +78,7 @@
                                 ortopedii. Jego wiedza i doświadczenie są fundamentem naszej placówki.
                             </li>
                             <li class="flex justify-center mt-3">
-                                <img src="{{ asset('Images/pies6.jpg') }}" alt="Janusz Soczek"
+                                <img src="{{ asset('Images/soczek_janusz1.jpg') }}" alt="Janusz Soczek"
                                      class="w-40 h-40 rounded-full shadow-lg">
                             </li>
                             <li>

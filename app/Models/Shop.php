@@ -9,11 +9,6 @@ class Shop extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'slug',
@@ -38,6 +33,8 @@ class Shop extends Model
 
     public function scopeSearch($query, $value)
     {
-        $query->where('name', 'like', "%{$value}%");
+        if ($value) {
+            $query->where('name', 'like', "%{$value}%");
+        }
     }
 }
