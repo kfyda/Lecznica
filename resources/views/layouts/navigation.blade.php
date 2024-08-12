@@ -7,7 +7,7 @@
                 <a href="{{ route('home') }}" class="flex items-center space-x-4">
                     <img src="{{ asset('Images/cat2.png') }}" alt="Logo kota" class="h-12 w-auto">
                     <span class="text-white text-2xl font-semibold hidden md:block">
-                    Lecznica weterynaryjna <span class="text-green-500">"Soczek"</span>
+                    Lecznica weterynaryjna <span class="text-green-600">"Soczek"</span>
                     </span>
                 </a>
             </div>
