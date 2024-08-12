@@ -5,7 +5,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-green-500">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
             </svg>
-            <input type="text" placeholder="Szukaj..." class="w-full h-8 px-2 rounded-sm border-2 focus-visible:outline-none focus:border-green-500 transition duration-150 ease-in-out" wire:model.debounce.300ms="search" />
+            <input type="text" placeholder="Szukaj..." class="w-full h-8 px-2 rounded-sm border-2 focus-visible:outline-none focus:border-green-500 transition duration-150 ease-in-out" wire:model="search" />
         </div>
         <!-- Filtr sortowania -->
         <div class="relative">
@@ -36,7 +36,7 @@
             @foreach($items as $item)
                 <a href="{{ route('shop.show', $item) }}">
                     <div x-data="{ visible: false }" class="relative w-full bg-white rounded-sm p-4">
-                        <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" class="mx-auto rounded-sm h-48" />
+                        <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" class="mx-auto rounded-sm" />
                         <h5 class="text-center mt-2">{{ $item->name }}</h5>
                         <p class="text-center text-sm">{{ $item->price }} zł</p>
 
