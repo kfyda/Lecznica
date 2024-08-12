@@ -2,10 +2,13 @@
     <!-- Primary Navigation Menu -->
     <div class="w-full max-w-7xl mx-auto">
         <div class="flex justify-between items-center h-20 px-4">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-                <a href="{{ route('home') }}">
-                    <img src="{{ asset('Images/cat2.png') }}" alt="Logo kota" class="h-9 w-auto">
+            <!-- Logo and Text -->
+            <div class="flex items-center">
+                <a href="{{ route('home') }}" class="flex items-center space-x-4">
+                    <img src="{{ asset('Images/cat2.png') }}" alt="Logo kota" class="h-12 w-auto">
+                    <span class="text-white text-2xl font-semibold hidden md:block">
+                    Lecznica weterynaryjna <span class="text-green-500">"Soczek"</span>
+                    </span>
                 </a>
             </div>
 
@@ -32,13 +35,6 @@
                                 {{  $service->name }}
                             </x-dropdown-link>
                         @endforeach
-{{--                        <x-dropdown-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')" class="text-black hover:bg-green-100">--}}
-{{--                            {{ __('Szczepienie') }}--}}
-{{--                        </x-dropdown-link>--}}
-
-{{--                        <x-dropdown-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')" class="text-black hover:bg-green-100">--}}
-{{--                            {{ __('Rehabilitacja') }}--}}
-{{--                        </x-dropdown-link>--}}
                     </x-slot>
                 </x-dropdown>
 

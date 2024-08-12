@@ -8,7 +8,7 @@
         <!-- Centralne informacje -->
         <div class="text-center w-full md:w-1/3 my-10 md:my-0 md:-mt-24">
             <h3 class="text-4xl font-bold mb-6">Lecznica Weterynaryjna "SOCZEK"</h3>
-            <p class="text-1xl">Kotek, piesek, koń czy krowa się przy Soczku dobrze chowa...</p>
+            <p class="text-base md:text-lg">Kotek, piesek, koń czy krowa się przy Soczku dobrze chowa...</p>
         </div>
 
         <!-- Sekcja z danymi kontaktowymi -->
