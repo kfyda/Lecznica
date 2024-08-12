@@ -36,7 +36,7 @@
             @foreach($items as $item)
                 <a href="{{ route('shop.show', $item) }}">
                     <div x-data="{ visible: false }" class="relative w-full bg-white rounded-sm p-4">
-                        <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" class="mx-auto rounded-sm h-48" />
+                        <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" class="mx-auto rounded-sm" />
                         <h5 class="text-center mt-2">{{ $item->name }}</h5>
                         <p class="text-center text-sm">{{ $item->getPrice() }} zł</p>
 
