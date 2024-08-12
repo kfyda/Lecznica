@@ -27,13 +27,18 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')" class="text-black hover:bg-green-100">
-                            {{ __('Szczepienie') }}
-                        </x-dropdown-link>
+                        @foreach($services as $service)
+                            <x-dropdown-link :href="route('services.show', $service)" class="text-black hover:bg-green-100">
+                                {{  $service->name }}
+                            </x-dropdown-link>
+                        @endforeach
+{{--                        <x-dropdown-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')" class="text-black hover:bg-green-100">--}}
+{{--                            {{ __('Szczepienie') }}--}}
+{{--                        </x-dropdown-link>--}}
 
-                        <x-dropdown-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')" class="text-black hover:bg-green-100">
-                            {{ __('Rehabilitacja') }}
-                        </x-dropdown-link>
+{{--                        <x-dropdown-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')" class="text-black hover:bg-green-100">--}}
+{{--                            {{ __('Rehabilitacja') }}--}}
+{{--                        </x-dropdown-link>--}}
                     </x-slot>
                 </x-dropdown>
 
@@ -77,12 +82,11 @@
                 </x-slot:trigger>
 
                 <x-slot:content>
-                    <x-responsive-nav-link :href="route('services.vaccination')" :active="request()->routeIs('services.vaccination')" class="text-white hover:text-green-300">
-                        {{ __('Szczepienie') }}
-                    </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('services.rehabilitation')" :active="request()->routeIs('services.rehabilitation')" class="text-white hover:text-green-300">
-                        {{ __('Rehabilitacja') }}
-                    </x-responsive-nav-link>
+                    @foreach($services as $service)
+                        <x-responsive-nav-link :href="route('services.show', $service)" :active="request()->routeIs('services.vaccination')" class="text-white hover:text-green-300">
+                            {{ $service->name }}
+                        </x-responsive-nav-link>
+                    @endforeach
                 </x-slot:content>
             </x-responsive-dropdown>
 

@@ -23,50 +23,11 @@
                         <h3 class="text-3xl font-bold mb-4 border-b-4 border-teal-500 inline-block">Nasze
                             specjalizacje</h3>
                         <ul class="mt-4 space-y-2 text-lg">
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Chirurgia tkanek
-                                miękkich
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Dermatologia
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>EKG
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Fryzjerstwo
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Ortopedia
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Sterylizacja i
-                                kastracja
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Okulistyka
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Stomatologia
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>RTG
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>USG
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Badania laboratoryjne
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Szczepienia ochronne
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Rozród i położnictwo
-                            </li>
-                            <li class="flex items-center">
-                                <span class="material-icons text-teal-500 mr-2">check_circle</span>Chirurgia ogólna
-                            </li>
+                            @foreach($services as $service)
+                                <li class="flex items-center">
+                                    <span class="material-icons text-teal-500 mr-2">check_circle</span>{{ $service->name }}
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 

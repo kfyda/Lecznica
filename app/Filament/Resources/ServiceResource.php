@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ShopResource\Pages;
-use App\Filament\Resources\ShopResource\RelationManagers;
-use App\Models\Shop;
+use App\Filament\Resources\ServiceResource\Pages;
+use App\Filament\Resources\ServiceResource\RelationManagers;
+use App\Models\Service;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,37 +15,39 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
-class ShopResource extends Resource
+class ServiceResource extends Resource
 {
-    protected static ?string $model = Shop::class;
+    protected static ?string $model = Service::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
-    protected static ?string $modelLabel = 'przedmiot';
-    protected static ?string $pluralLabel = 'przedmioty';
-    protected static ?string $navigationLabel = 'Przedmioty w sklepie';
+    protected static ?string $navigationIcon = 'heroicon-o-bookmark';
+    protected static ?string $modelLabel = 'usługa';
+    protected static ?string $pluralLabel = 'usługi';
+    protected static ?string $navigationLabel = 'Usługi';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->label('Nazwa przedmiotu')
-                    ->required()
-                    ->unique(ignorable: fn($record) => $record)
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
-                        if ($operation !== 'create') return;
+                Forms\Components\Grid::make(2)->schema([
+                    Forms\Components\TextInput::make('name')
+                        ->label('Nazwa usługi')
+                        ->required()
+                        ->unique(ignorable: fn($record) => $record)
+                        ->live(onBlur: true)
+                        ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
+                            if ($operation !== 'create') return;
 
-                        $set('slug', Str::slug($state));
-                    })
-                    ->maxLength(32),
-                Forms\Components\TextInput::make('slug')
-                    ->label('URL')
-                    ->required()
-                    ->disabled()
-                    ->dehydrated()
-                    ->unique(ignorable: fn($record) => $record)
-                    ->maxLength(64),
+                            $set('slug', Str::slug($state));
+                        })
+                        ->maxLength(128),
+                    Forms\Components\TextInput::make('slug')
+                        ->label('URL')
+                        ->required()
+                        ->disabled()
+                        ->dehydrated()
+                        ->unique(ignorable: fn($record) => $record)
+                        ->maxLength(256),
+                ]),
                 Forms\Components\TextInput::make('price')
                     ->label('Cena')
                     ->required()
@@ -53,21 +55,19 @@ class ShopResource extends Resource
                     ->suffix('zł')
                     ->rules('regex:/^\d{1,6}(\.\d{0,2})?$/'),
                 Forms\Components\FileUpload::make('image_path')
-                    ->label('Zdjęcie')
+                    ->label('Zdjęcia')
                     ->image()
                     ->getUploadedFileNameForStorageUsing(
                         fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
                             ->prepend(now()->timestamp),
                     )
-                    ->directory('shop-images')
+                    ->directory('service-images')
+                    ->multiple()
                     ->preserveFilenames(),
                 Forms\Components\RichEditor::make('description')
                     ->label('Opis')
+                    ->required()
                     ->columnSpanFull(),
-                Forms\Components\Toggle::make('is_available')
-                    ->label('Czy jest na stanie?')
-                    ->default(true)
-                    ->required(),
             ]);
     }
 
@@ -76,9 +76,9 @@ class ShopResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
-                    ->label('Zdjęcie'),
+                    ->label('Zdjęcia'),
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Nazwa')
+                    ->label('Nazwa usługi')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->label('URL')
@@ -88,9 +88,6 @@ class ShopResource extends Resource
                     ->label('Cena')
                     ->money('PLN')
                     ->sortable(),
-                Tables\Columns\IconColumn::make('is_available')
-                    ->label('Czy jest na stanie?')
-                    ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Data utworzenia')
                     ->dateTime()
@@ -126,10 +123,10 @@ class ShopResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListShops::route('/'),
-            'create' => Pages\CreateShop::route('/create'),
-            'view' => Pages\ViewShop::route('/{record}'),
-            'edit' => Pages\EditShop::route('/{record}/edit'),
+            'index' => Pages\ListServices::route('/'),
+            'create' => Pages\CreateService::route('/create'),
+            'view' => Pages\ViewService::route('/{record}'),
+            'edit' => Pages\EditService::route('/{record}/edit'),
         ];
     }
 }

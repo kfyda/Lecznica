@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Service;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Pobranie
+        view()->composer(
+            ['home', 'layouts.navigation'],
+            function ($view) {
+                $view->with('services',
+                    Service::query()
+                        ->select('name', 'slug')
+                        ->limit(18)
+                        ->get()
+                );
+            }
+        );
     }
 }

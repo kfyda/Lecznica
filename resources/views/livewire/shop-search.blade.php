@@ -13,10 +13,27 @@
         <div class="flex grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-between">
             @foreach($items as $item)
                 <a href="{{ route('shop.show', $item) }}">
-                    <div class="w-full bg-white rounded-sm p-4">
-                        <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" class="mx-auto rounded-sm h-48" />
+                    <div class="relative w-full bg-white rounded-sm p-4">
+                        <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" class="mx-auto rounded-sm" />
                         <h5 class="text-center mt-2">{{ $item->name }}</h5>
                         <p class="text-center text-sm">{{ $item->price }} zł</p>
+
+                        @if($item->is_available)
+                            <div
+                                class="absolute flex flex-col items-center justify-center z-20 top-5 right-5 rounded-md bg-green-500">
+                                <p x-show>Dostępny</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-white size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                            </div>
+                        @else
+                            <div class="absolute flex flex-col items-center justify-center z-20 top-5 right-5 rounded-md bg-red-500">
+                                <p class="hidden hover:block">Niedostępny</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-white size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                        @endif
                     </div>
                 </a>
             @endforeach

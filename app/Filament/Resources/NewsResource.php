@@ -43,6 +43,8 @@ class NewsResource extends Resource
                     Forms\Components\TextInput::make('slug')
                         ->label('URL')
                         ->required()
+                        ->disabled()
+                        ->dehydrated()
                         ->unique(ignorable: fn($record) => $record)
                         ->maxLength(256),
                 ]),

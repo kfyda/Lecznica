@@ -24,5 +24,9 @@ class DatabaseSeeder extends Seeder
 
         News::factory(20)->create();
         Shop::factory(40)->create();
+
+        $this->call([
+            ServiceSeeder::class,
+        ]);
     }
 }
