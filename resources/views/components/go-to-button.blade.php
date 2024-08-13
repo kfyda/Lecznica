@@ -1,5 +1,5 @@
-<div class="p-2 text-white rounded-lg bg-green-500 hover:bg-green-400 w-48 transition duration-150 ease-in-out {{ $class ?? '' }}">
-    <a href="{{ route('news.show', $news) }}" class="flex justify-between items-center gap-x-2">
+<div class="text-white rounded-lg bg-green-500 hover:bg-green-400 w-48 transition duration-150 ease-in-out {{ $class ?? '' }}">
+    <a href="{{ route('news.show', $news) }}" class="flex justify-between items-center gap-x-2 p-2">
         <p>
             Przejdź do artykułu
         </p>
