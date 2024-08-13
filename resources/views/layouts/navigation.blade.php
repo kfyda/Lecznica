@@ -18,7 +18,7 @@
                     {{ __('Galeria') }}
                 </x-nav-link>
 
-                <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')" class="text-white hover:text-green-300">
+                <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.*')" class="text-white hover:text-green-300">
                     {{ __('Ogłoszenia') }}
                 </x-nav-link>
 
@@ -31,7 +31,7 @@
 
                     <x-slot name="content">
                         @foreach($services as $service)
-                            <x-dropdown-link :href="route('services.show', $service)" class="text-black hover:bg-green-100">
+                            <x-dropdown-link :href="route('services.show', $service)" :active="request()->is('uslugi/'.$service->slug)" class="text-black hover:bg-green-100">
                                 {{  $service->name }}
                             </x-dropdown-link>
                         @endforeach

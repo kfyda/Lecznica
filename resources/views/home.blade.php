@@ -20,19 +20,19 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
-                        <h3 class="text-3xl font-bold mb-4 border-b-4 border-teal-500 inline-block">Nasze
+                        <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasze
                             specjalizacje</h3>
                         <ul class="mt-4 space-y-2 text-lg">
                             @foreach($services as $service)
                                 <li class="flex items-center">
-                                    <span class="material-icons text-teal-500 mr-2">check_circle</span>{{ $service->name }}
+                                    <span class="material-icons text-green-600 mr-2">check_circle</span>{{ $service->name }}
                                 </li>
                             @endforeach
                         </ul>
                     </div>
 
                     <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
-                        <h3 class="text-3xl font-bold mb-4 border-b-4 border-teal-500 inline-block">Nasi lekarze</h3>
+                        <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasi lekarze</h3>
                         <ul class="mt-4 space-y-4 text-lg">
                             <li>
                                 <strong>Janusz Soczek</strong> – Specjalista w dziedzinie chirurgii tkanek miękkich oraz
@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
-                        <h3 class="text-3xl font-bold mb-4 border-b-4 border-teal-500 inline-block">Nasza misja</h3>
+                        <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasza misja</h3>
                         <p class="mt-4 text-lg leading-relaxed">
                             Naszą misją jest zapewnienie najwyższej jakości opieki weterynaryjnej, która obejmuje nie
                             tylko leczenie, ale także profilaktykę i edukację właścicieli zwierząt. Wierzymy, że zdrowie
@@ -67,6 +67,24 @@
                             klientów Lecznicy weterynaryjnej “Soczek”.
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+{{--        Sekcja najnowsze ogłoszenia--}}
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-6xl font-extrabold text-[#333333] text-green-700">Najnowsze ogłoszenia</h2>
+                    <p class="mt-6 text-xl max-w-2xl mx-auto leading-relaxed text-[#333333]">
+                        Bądź na bierząco z aktualnymi wydarzeniami.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4">
+                    @foreach($newsCollection as $news)
+                        <x-news :news="$news" wire:key="{{ $news->id }}" />
+                    @endforeach
                 </div>
             </div>
         </section>
