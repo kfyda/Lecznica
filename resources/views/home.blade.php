@@ -72,7 +72,7 @@
         </section>
 
 {{--        Sekcja najnowsze ogłoszenia--}}
-        <section class="py-20">
+        <section class="py-20 relative">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-6xl font-extrabold text-[#333333] text-green-700">Najnowsze ogłoszenia</h2>
@@ -81,11 +81,20 @@
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 mb-16">
                     @foreach($newsCollection as $news)
                         <x-news :news="$news" wire:key="{{ $news->id }}" />
                     @endforeach
                 </div>
+
+                <a href="{{ route('news.index') }}">
+                    <div class="absolute text-white flex flex-col items-center w-48 rounded-lg p-2 bg-green-700 bottom-12 left-1/2 -translate-x-1/2 inset-x-0 hover:bg-green-500 hover:scale-105 transition duration-[0.3s] ease-in-out">
+                        <p>Zobacz więcej ogłoszeń</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </div>
+                </a>
             </div>
         </section>
     </div>

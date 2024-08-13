@@ -29,7 +29,12 @@ class News extends Model
 
     public function formatedDate()
     {
-        return $this->created_at->format('F h:i Y');
+        return $this->created_at->isoFormat('dddd, D MMMM YYYY');
+    }
+
+    public function formatedTime()
+    {
+        return $this->created_at->isoFormat('H:mm');
     }
 
     public function getURLImage()

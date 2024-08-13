@@ -4,7 +4,7 @@
     {{--Ogłoszenie 1--}}
     <article class="w-full h-56 mt-4 p-2">
         <h4 class="text-2xl font-bold text-nowrap text-ellipsis overflow-hidden border-b-4 border-green-600">{{ $news->title }}</h4>
-        <p class="text-sm text-green-700 text-center mt-2">Dodano: {{ $news->formatedDate() }}</p>
+        <p class="text-sm text-green-600 text-center mt-2">Dodano: {{ $news->formatedDate() }}</p>
         <p class="mt-2 text-justify">{!! $news->getShortDescription(32) !!}</p>
     </article>
     <x-go-to-button :news="$news" />
