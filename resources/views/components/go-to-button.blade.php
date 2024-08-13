@@ -1,4 +1,4 @@
-<div class="p-2 rounded-lg bg-green-700 hover:bg-green-500 text-white w-48 transition duration-150 ease-in-out">
+<div class="p-2 text-white rounded-lg bg-green-500 hover:bg-green-400 w-48 transition duration-150 ease-in-out {{ $class ?? '' }}">
     <a href="{{ route('news.show', $news) }}" class="flex justify-between items-center gap-x-2">
         <p>
             Przejdź do artykułu
