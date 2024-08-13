@@ -23,3 +23,45 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+/* klasy do shop-search */
+.product-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* bold */
+    color: black; /* or another color you prefer */
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Stała wysokość dla karty produktu */
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card img {
+    width: 100%; /* Szerokość obrazu dopasowana do szerokości karty */
+    height: 250px; /* Stała wysokość obrazu */
+    object-fit: cover; /* Zachowanie proporcji obrazu */
+    border-radius: 0.5rem;
+    margin-bottom: 1rem; /* Dodaje odstęp poniżej obrazu */
+}
+
+.product-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card p {
+    margin: 0; /* Usuwa domyślne marginesy */
+}
