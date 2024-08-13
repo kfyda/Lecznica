@@ -24,7 +24,7 @@ class News extends Model
 
     public function getShortDescription(int $words = 48): string
     {
-        return Str::words(strip_tags($this->description), $words);
+        return Str::words($this->description, $words);
     }
 
     public function formatedDate()

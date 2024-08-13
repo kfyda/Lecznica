@@ -65,3 +65,7 @@
 .product-card p {
     margin: 0; /* Usuwa domyślne marginesy */
 }
+
+[x-cloak] {
+    display: none !important;
+}

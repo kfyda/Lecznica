@@ -1,4 +1,8 @@
 <x-app-layout>
+    @section('title')
+        {{ 'Kontakt ' }}
+    @endsection
+
     <x-header title="Kontakt" />
 
     <!-- Kontener na godziny pracy i mapę -->
