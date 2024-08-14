@@ -1,20 +1,20 @@
 @props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700', 'active'])
 
 @php
-$alignmentClasses = match ($align) {
-    'left' => 'ltr:origin-top-left rtl:origin-top-right start-0',
-    'top' => 'origin-top',
-    default => 'ltr:origin-top-right rtl:origin-top-left end-0',
-};
+    $alignmentClasses = match ($align) {
+        'left' => 'ltr:origin-top-left rtl:origin-top-right start-0',
+        'top' => 'origin-top',
+        default => 'ltr:origin-top-right rtl:origin-top-left end-0',
+    };
 
-$classes = ($active ?? false)
+    $classes = ($active ?? false)
             ? 'inline-flex items-center px-2 py-2 border-b-2 cursor-pointer border-green-500 dark:border-green-600 text-md font-medium leading-5 text-green-500 dark:text-green-400 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out'
             : 'inline-flex items-center px-2 py-2 border-b-2 cursor-pointer border-transparent text-md font-medium leading-5 text-white dark:text-gray-400 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out';
 
-$width = match ($width) {
-    '48' => 'w-48',
-    default => $width,
-};
+    $width = match ($width) {
+        '48' => 'w-48',
+        default => $width,
+    };
 @endphp
 
 <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false" @mouseleave="open = false">

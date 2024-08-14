@@ -17,7 +17,7 @@
                     <img alt="{{ $recentNews->slug }}" src="{{ $recentNews->getURLImage() }}" class="mx-auto rounded-lg w-full sm:w-1/2 lg:w-auto lg:h-64">
                     {{--Treść--}}
                     <article class="flex flex-col justify-center lg:mt-0 w-full lg:w-2/3">
-                        <p class="text-sm text-center text-green-600 lg:text-right">Dodano: {{ $recentNews->formatedDate() }} <br> O godzinie: {{ $recentNews->formatedTime() }}</p>
+                        <p class="text-sm text-center text-600 lg:text-right">Dodano: {{ $recentNews->formatedDate() }} <br> O godzinie: {{ $recentNews->formatedTime() }}</p>
                         <h3 class="text-2xl text-center mt-6 md:mt-0 font-semibold mb-2">{{ $recentNews->title }}</h3>
                         <p class="text-justify text-lg">{!! $recentNews->getShortDescription(80) !!}</p>
                         <x-go-to-button :news="$recentNews" class="mt-4" />

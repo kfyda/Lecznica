@@ -81,7 +81,7 @@
                 <div class="text-center mb-16">
                     <h2 class="text-6xl font-extrabold text-[#333333] text-green-700">Najnowsze ogłoszenia</h2>
                     <p class="mt-6 text-xl max-w-2xl mx-auto leading-relaxed text-[#333333]">
-                        Bądź na bierząco z aktualnymi wydarzeniami.
+                        Bądź na bieżąco z aktualnymi wydarzeniami.
                     </p>
                 </div>
 
