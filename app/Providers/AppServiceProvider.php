@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Pobranie nazw usług i wyświetlenie ich na stronie głównej i pasku nawigacji
         view()->composer(
-            ['home', 'layouts.navigation'],
+            ['home', 'livewire.navigation'],
             function ($view) {
                 $view->with('services',
                     Service::query()

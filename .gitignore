@@ -18,6 +18,3 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-postcss.config.js
-tailwind.config.js
-vite.config.js

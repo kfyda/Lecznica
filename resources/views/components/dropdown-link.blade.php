@@ -8,7 +8,7 @@
     $activeClasses = 'text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500';
 
     // Klasy dla nieaktywnego stanu
-    $inactiveClasses = 'text-black dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500';
+    $inactiveClasses = 'text-black dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-green-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500';
 
     // Wybór klas w zależności od stanu aktywności
     $classes = $active ? "{$baseClasses} {$activeClasses}" : "{$baseClasses} {$inactiveClasses}";
