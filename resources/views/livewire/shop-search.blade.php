@@ -17,7 +17,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="itemsPerPageOpen" @click.away="itemsPerPageOpen = false" class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                    <div x-show="itemsPerPageOpen" @click.away="itemsPerPageOpen = false" x-cloak
+                         x-transition:enter="transition ease-out duration-200"
+                         x-transition:enter-start="opacity-0 scale-95"
+                         x-transition:enter-end="opacity-100 scale-100"
+                         x-transition:leave="transition ease-in duration-75"
+                         x-transition:leave-start="opacity-100 scale-100"
+                         x-transition:leave-end="opacity-0 scale-95"
+                         class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
                         <ul class="divide-y divide-gray-200">
                             <li>
                                 <button @click="$wire.set('itemsPerPage', 12); itemsPerPageOpen = false" class="block px-4 py-2 text-black font-medium hover:bg-gray-100 w-full text-left">Wyświetl 12</button>
@@ -46,7 +53,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="filterOpen" @click.away="filterOpen = false" class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                    <div x-show="filterOpen" @click.away="filterOpen = false" x-cloak
+                         x-transition:enter="transition ease-out duration-200"
+                         x-transition:enter-start="opacity-0 scale-95"
+                         x-transition:enter-end="opacity-100 scale-100"
+                         x-transition:leave="transition ease-in duration-75"
+                         x-transition:leave-start="opacity-100 scale-100"
+                         x-transition:leave-end="opacity-0 scale-95"
+                         class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
                         <ul class="divide-y divide-gray-200">
                             <li>
                                 <button wire:click="$set('sortOption', 'price_asc')" class="block px-4 py-2 text-black font-medium hover:bg-gray-100 w-full text-left">Cena: rosnąco</button>
@@ -75,7 +89,7 @@
                         <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" />
                         <div class="product-details">
                             <h5 class="text-center mt-4 product-name">{{ $item->name }}</h5>
-                            <p class="text-center text-lg font-bold text-green-600 mt-2">{{ $item->getPrice() }} zł</p>
+                            <p class="text-center text-lg font-bold text-green-600 mt-2">{{ $item->getPrice() }}</p>
                         </div>
                     </div>
                 </a>

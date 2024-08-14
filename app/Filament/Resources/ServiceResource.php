@@ -76,7 +76,9 @@ class ServiceResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
-                    ->label('Zdjęcia'),
+                    ->label('Zdjęcia')
+                    ->stacked()
+                    ->limit(5),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nazwa usługi')
                     ->searchable(),
