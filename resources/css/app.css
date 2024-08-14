@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -69,3 +78,7 @@
 [x-cloak] {
     display: none !important;
 }
+
+/*:root:has(.no-doc-scroll) {*/
+/*    overflow:hidden;*/
+/*}*/

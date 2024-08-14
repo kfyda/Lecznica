@@ -22,7 +22,8 @@ class NewsFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'image_path' => fake()->imageUrl,
-            'description' => fake()->realText(6400)
+            'description' => fake()->realText(6400),
+            'created_at' => fake()->dateTimeBetween('-36 months')
         ];
     }
 }

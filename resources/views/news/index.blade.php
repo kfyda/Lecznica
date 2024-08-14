@@ -37,5 +37,6 @@
                 </div>
             </section>
         </div>
+        {{ $newsCollection->links() }}
     </div>
 </x-app-layout>

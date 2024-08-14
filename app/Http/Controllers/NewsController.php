@@ -20,7 +20,7 @@ class NewsController extends Controller
         $newsCollection = News::query()
             ->whereNot('id', '=', $recentNews->id)
             ->orderBy('created_at', 'desc')
-            ->paginate(6);
+            ->paginate(8);
 
 //        dd($newsCollection);
 

@@ -24,7 +24,8 @@ class ShopFactory extends Factory
             'price' => fake()->randomFloat(2, 0, 200),
             'image_path' => fake()->imageUrl,
             'description' => fake()->realText(500),
-            'is_available' => fake()->boolean(80)
+            'is_available' => fake()->boolean(80),
+            'created_at' => fake()->dateTimeBetween('-36 months')
         ];
     }
 }

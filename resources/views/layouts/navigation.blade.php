@@ -6,7 +6,7 @@
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex items-center space-x-4">
                     <img src="{{ asset('Images/cat2.png') }}" alt="Logo kota" class="h-12 w-auto">
-                    <span class="text-white text-2xl font-semibold hidden md:block">
+                    <span class="text-white pr-4 text-lg lg:text-2xl font-semibold hidden md:block">
                     Lecznica weterynaryjna <span class="text-green-600">"Soczek"</span>
                     </span>
                 </a>
@@ -60,17 +60,17 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="absolute top-0 left-0 w-full bg-black bg-opacity-90 sm:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="absolute top-20 left-0 w-full bg-black sm:hidden">
         <div class="space-y-1 px-4 py-2">
-            <x-responsive-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')" class="text-white hover:text-green-300">
+            <x-responsive-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')">
                 {{ __('Galeria') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')" class="text-white hover:text-green-300">
+            <x-responsive-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
                 {{ __('Ogłoszenia') }}
             </x-responsive-nav-link>
 
-            <x-responsive-dropdown x-data="{openDropdown: false}" :active="request()->routeIs('services.*')" class="text-white hover:text-green-300">
+            <x-responsive-dropdown x-data="{openDropdown: false}" :active="request()->routeIs('services.*')">
                 <x-slot:trigger>
                     <button @click="openDropdown = ! openDropdown" class="flex items-center">
                         <div>Usługi</div>
@@ -95,29 +95,29 @@
             </x-responsive-nav-link>
         </div>
 
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t bg-gray-800 border-gray-600">
-            <div class="px-4">
-                <div class="font-medium text-base text-white">{{ Auth::user()->name ?? 'Gość' }}</div>
-                <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email ?? 'gosc@test.pl' }}</div>
-            </div>
+{{--        <!-- Responsive Settings Options -->--}}
+{{--        <div class="pt-4 pb-1 border-t bg-gray-800 border-gray-600">--}}
+{{--            <div class="px-4">--}}
+{{--                <div class="font-medium text-base text-white">{{ Auth::user()->name ?? 'Gość' }}</div>--}}
+{{--                <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email ?? 'gosc@test.pl' }}</div>--}}
+{{--            </div>--}}
 
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')" class="text-white hover:text-green-300">
-                    {{ __('Profil') }}
-                </x-responsive-nav-link>
+{{--            <div class="mt-3 space-y-1">--}}
+{{--                <x-responsive-nav-link :href="route('profile.edit')" class="text-white hover:text-green-300">--}}
+{{--                    {{ __('Profil') }}--}}
+{{--                </x-responsive-nav-link>--}}
 
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
+{{--                <!-- Authentication -->--}}
+{{--                <form method="POST" action="{{ route('logout') }}">--}}
+{{--                    @csrf--}}
 
-                    <x-responsive-nav-link :href="route('logout')" class="text-white hover:text-green-300"
-                                           onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Wyloguj się') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
+{{--                    <x-responsive-nav-link :href="route('logout')" class="text-white hover:text-green-300"--}}
+{{--                                           onclick="event.preventDefault();--}}
+{{--                                        this.closest('form').submit();">--}}
+{{--                        {{ __('Wyloguj się') }}--}}
+{{--                    </x-responsive-nav-link>--}}
+{{--                </form>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 </nav>
