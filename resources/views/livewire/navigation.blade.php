@@ -60,7 +60,14 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="absolute top-20 left-0 w-full bg-black sm:hidden">
+    <div x-show="open" x-cloak
+         x-transition:enter="transition ease-out duration-400"
+         x-transition:enter-start="opacity-0 top-0"
+         x-transition:enter-end="opacity-100 top-20"
+         x-transition:leave="transition ease-in duration-75"
+         x-transition:leave-start="opacity-100 top-20"
+         x-transition:leave-end="opacity-0 top-0"
+         class="absolute top-20 left-0 w-full bg-black sm:hidden">
         <div class="space-y-1 px-4 py-2">
             <x-responsive-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')">
                 {{ __('Galeria') }}
@@ -79,7 +86,7 @@
 
                 <x-slot:content>
                     @foreach($services as $service)
-                        <x-responsive-nav-link :href="route('services.show', $service)" :active="request()->routeIs('services.vaccination')" class="text-white hover:text-green-300">
+                        <x-responsive-nav-link :href="route('services.show', $service)" :active="request()->is('uslugi/'.$service->slug)" class="text-white hover:text-green-300">
                             {{ $service->name }}
                         </x-responsive-nav-link>
                     @endforeach

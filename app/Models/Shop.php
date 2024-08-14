@@ -31,9 +31,9 @@ class Shop extends Model
         return '/storage/' . $this->image_path;
     }
 
-    public function getPrice()
+    public function getPrice():string
     {
-        return str_replace('.', ',', $this->price);
+        return str_replace('.', ',', $this->price) . ' zł';
     }
 
     public function scopeSearch($query, $value)
