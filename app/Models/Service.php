@@ -17,23 +17,20 @@ class Service extends Model
     protected $fillable = [
         'name',
         'slug',
-        'price',
+//        'price',
         'description',
         'image_path',
     ];
 
-    protected $casts = [
-        'image_path' => 'array',
-    ];
+//    protected $casts = [
+//        'image_path' => 'array',
+//    ];
 
     public function getURLImage()
     {
-        foreach ($this->image_path as $image)
-        {
-            if (str_starts_with($image, 'http')) {
-                return $image;
-            }
-            return '/storage/' . $image;
+        if (str_starts_with($this->image_path, 'http')) {
+            return $this->image_path;
         }
+        return '/storage/' . $this->image_path;
     }
 }

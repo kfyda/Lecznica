@@ -62,7 +62,7 @@ class ServiceResource extends Resource
                             ->prepend(now()->timestamp),
                     )
                     ->directory('service-images')
-                    ->multiple()
+//                    ->multiple()
                     ->preserveFilenames(),
                 Forms\Components\RichEditor::make('description')
                     ->label('Opis')
@@ -77,7 +77,7 @@ class ServiceResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
                     ->label('Zdjęcia')
-                    ->stacked()
+//                    ->stacked()
                     ->limit(5),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nazwa usługi')
