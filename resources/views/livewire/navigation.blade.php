@@ -38,7 +38,7 @@
                     </x-slot>
                 </x-dropdown>
 
-                <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')">
+                <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.*')">
                     {{ __('Katalog produktów') }}
                 </x-nav-link>
 
@@ -86,18 +86,18 @@
 
                 <x-slot:content>
                     @foreach($services as $service)
-                        <x-responsive-nav-link :href="route('services.show', $service)" :active="request()->is('uslugi/'.$service->slug)" class="text-white hover:text-green-300">
+                        <x-responsive-nav-link :href="route('services.show', $service)" :active="request()->is('uslugi/'.$service->slug)">
                             {{ $service->name }}
                         </x-responsive-nav-link>
                     @endforeach
                 </x-slot:content>
             </x-responsive-dropdown>
 
-            <x-responsive-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')" class="text-white hover:text-green-300">
+            <x-responsive-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.*')">
                 {{ __('Sklep') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')" class="text-white hover:text-green-300">
+            <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
                 {{ __('Kontakt') }}
             </x-responsive-nav-link>
         </div>

@@ -23,7 +23,7 @@ enum CategoryTypes:string implements HasLabel
         return match ($this) {
             self::FOOD => 'Pożywienie',
             self::TOY => 'Zabawki',
-            self::FOOD_CONTAINER => 'Pojemniki na jedzenie i wodę',
+            self::FOOD_CONTAINER => 'Pojemniki/miski',
             self::ACCESSORIES => 'Akcesoria',
             self::CARE => 'Pielęgnacja i higiena',
             self::DIETARY_SUPPLEMENTS => 'Suplementy diety'
