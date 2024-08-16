@@ -18,7 +18,7 @@ class ShopFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->words(rand(1,3), true);
+        $name = fake()->unique()->words(rand(1,3), true);
         return [
             'name' => $name,
             'slug' => Str::slug($name),

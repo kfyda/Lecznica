@@ -53,8 +53,8 @@ html,body
 }
 
 .product-card img {
-    width: 100%; /* Szerokość obrazu dopasowana do szerokości karty */
-    height: 250px; /* Stała wysokość obrazu */
+    width: auto; /* Szerokość obrazu automatycznie dopasowana */
+    height: 200px; /* Stała wysokość obrazu */
     object-fit: cover; /* Zachowanie proporcji obrazu */
     border-radius: 0.5rem;
     margin-bottom: 1rem; /* Dodaje odstęp poniżej obrazu */
