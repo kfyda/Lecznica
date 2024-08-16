@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 32);
-            $table->string('slug', 64);
+            $table->string('name', 32)->unique();
+            $table->string('slug', 64)->unique();
 //            $table->decimal('price', 6, 2);
             $table->longText('description');
 //            $table->string('image_path', 2048)->default('[]');

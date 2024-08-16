@@ -6,7 +6,7 @@
     <x-header title="Galeria" />
 
     <div class="p-6">
-        <section class="flex flex-wrap gap-2 w-full mt-6 p-6 justify-center">
+        <section class="flex flex-wrap gap-2 w-full mt-6 p-6 justify-center bg-white shadow-lg rounded-lg">
             {{--Zdjęcia--}}
             @foreach($photos as $photo)
                 <img class="md:h-80 rounded-lg cursor-pointer gallery-img" src="{{$photo->getURLImage()}}" alt="" onclick="openModal({{$loop->index}})">

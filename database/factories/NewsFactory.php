@@ -17,7 +17,7 @@ class NewsFactory extends Factory
      */
     public function definition(): array
     {
-        $title = fake()->words(rand(3,10), true);
+        $title = fake()->unique()->words(rand(3,10), true);
         return [
             'title' => $title,
             'slug' => Str::slug($title),

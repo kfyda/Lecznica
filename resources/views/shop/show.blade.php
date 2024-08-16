@@ -22,6 +22,10 @@
                         {{ $item->name }}
                     </h1>
                     <div class="h-1 w-24 bg-green-500 rounded-full"></div>
+                    <div class="mt-5 flex items-center gap-4">
+                        <h2 class="text-lg">Kategoria: </h2>
+                        <p class="bg-green-500 rounded-md px-2 py-1 text-white font-semibold">{{ $item->category }}</p>
+                    </div>
                 </section>
 
                 <!-- Opis -->
@@ -43,15 +47,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @foreach($itemCollection as $singleItem)
                     <a href="{{ route('shop.show', $singleItem) }}">
-                        <div x-data="{ visible: false }" class="product-card">
-                            @if($item->image_path)
-                                <img alt="{{ $item->slug }}" src="{{ $singleItem->getURLImage() }}" />
-                            @endif
-                            <div class="product-details">
-                                <h5 class="text-center mt-4 product-name">{{ $singleItem->name }}</h5>
-                                <p class="text-center text-lg font-bold text-green-600 mt-2">{{ $singleItem->getPrice() }}</p>
-                            </div>
-                        </div>
+                        <x-shop-item :item="$singleItem" wire:key="{{ $singleItem->id }}" />
                     </a>
                 @endforeach
             </div>
