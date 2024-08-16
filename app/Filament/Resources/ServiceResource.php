@@ -48,12 +48,6 @@ class ServiceResource extends Resource
                         ->unique(ignorable: fn($record) => $record)
                         ->maxLength(256),
                 ]),
-                Forms\Components\TextInput::make('price')
-                    ->label('Cena')
-                    ->required()
-                    ->numeric()
-                    ->suffix('zł')
-                    ->rules('regex:/^\d{1,6}(\.\d{0,2})?$/'),
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcia')
                     ->image()
@@ -86,10 +80,6 @@ class ServiceResource extends Resource
                     ->label('URL')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('price')
-                    ->label('Cena')
-                    ->money('PLN')
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Data utworzenia')
                     ->dateTime()
