@@ -4,7 +4,7 @@
     @endsection
 
     <div class="mt-20 p-6">
-        <div class="flex">
+        <div class="flex mb-10">
             <aside class="w-1/2 h-[50vh] bg-red-500 flex items-center justify-center">
                 @if($item->image_path)
                     <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" />
@@ -24,5 +24,12 @@
                 </article>
             </div>
         </div>
+        <section class="bg-yellow-500 flex gap-4 p-2">
+            @foreach($itemCollection as $singleItem)
+                <div class="bg-blue-500">
+                    <p>{{ $singleItem->name }}</p>
+                </div>
+            @endforeach
+        </section>
     </div>
 </x-app-layout>

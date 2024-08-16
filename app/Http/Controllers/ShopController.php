@@ -21,11 +21,11 @@ class ShopController extends Controller
      */
     public function show(Shop $item)
     {
-        $shopCollection = Shop::query()
+        $itemCollection = Shop::query()
             ->whereNot('id', '=', $item->id)
             ->orderBy('created_at', 'desc')
             ->limit(4)
             ->get();
-        return view('shop.show', compact('item'));
+        return view('shop.show', compact('item', 'itemCollection'));
     }
 }
