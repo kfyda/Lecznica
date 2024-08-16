@@ -26,9 +26,17 @@
         </div>
         <section class="bg-yellow-500 flex gap-4 p-2">
             @foreach($itemCollection as $singleItem)
-                <div class="bg-blue-500">
-                    <p>{{ $singleItem->name }}</p>
-                </div>
+                <a href="{{ route('shop.show', $item) }}">
+                    <div x-data="{ visible: false }" class="product-card">
+                        @if($item->image_path)
+                            <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" />
+                        @endif
+                        <div class="product-details">
+                            <h5 class="text-center mt-4 product-name">{{ $item->name }}</h5>
+                            <p class="text-center text-lg font-bold text-green-600 mt-2">{{ $item->getPrice() }}</p>
+                        </div>
+                    </div>
+                </a>
             @endforeach
         </section>
     </div>

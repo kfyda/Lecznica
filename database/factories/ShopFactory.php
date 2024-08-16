@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\CategoryTypes;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -22,6 +23,7 @@ class ShopFactory extends Factory
             'name' => $name,
             'slug' => Str::slug($name),
             'price' => fake()->randomFloat(2, 0, 200),
+            'category' => fake()->randomElement(CategoryTypes::cases()),
             'image_path' => fake()->imageUrl,
             'description' => fake()->realText(500),
             'is_available' => fake()->boolean(80),

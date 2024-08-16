@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Enums\CategoryTypes;
 use App\Models\Shop;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,12 +13,18 @@ class ShopSearch extends Component
 
     public string $search = '';
     public string $sortOption = 'latest'; // Domyślna opcja sortowania
+    public string $categoryOption = ''; // Domyślna opcja bez filtrowania kategorii
     public int $itemsPerPage = 12; // Domyślna liczba elementów na stronę
     public bool $showAll = false; // Flaga dla opcji "wyświetl wszystko"
 
     public function render()
     {
-        $query = Shop::query()->search($this->search);
+        $query = Shop::query()
+            ->search($this->search);
+
+        if (!empty($this->categoryOption)) {
+            $query->where('category', '=', $this->categoryOption);
+        }
 
         switch ($this->sortOption) {
             case 'price_asc':
@@ -54,16 +61,8 @@ class ShopSearch extends Component
         $this->resetPage();
     }
 
-    public function updatedItemsPerPage($value)
+    public function updatedCategoryOption()
     {
-        if ($value === 'all') {
-            $this->showAll = true;
-            $this->itemsPerPage = 999999; // Wymuszenie bardzo dużej liczby dla "wszystko"
-        } else {
-            $this->showAll = false;
-            $this->itemsPerPage = (int) $value;
-        }
-
         $this->resetPage();
     }
 }
