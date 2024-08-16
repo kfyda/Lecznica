@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('slug', 64);
             $table->decimal('price', 6, 2);
             $table->longText('description')->nullable();
-            $table->string('image_path', 2048)->nullable();
+//            $table->string('image_path', 2048)->nullable();
+            $table->string('image_path', 2048);
             $table->boolean('is_available')->default(true);
             $table->timestamps();
         });

@@ -39,7 +39,7 @@
                 </x-dropdown>
 
                 <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')">
-                    {{ __('Sklep') }}
+                    {{ __('Katalog produktów') }}
                 </x-nav-link>
 
                 <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">

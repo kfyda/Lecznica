@@ -3,7 +3,7 @@
         {{ 'Sklep' }}
     @endsection
 
-    <x-header title="Sklep" />
+    <x-header title="Katalog produktów" />
 
     <div class="p-6">
         <livewire:shop-search />
