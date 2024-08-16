@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\CategoryTypes;
 use App\Filament\Resources\ShopResource\Pages;
 use App\Filament\Resources\ShopResource\RelationManagers;
 use App\Models\Shop;
@@ -46,12 +47,22 @@ class ShopResource extends Resource
                     ->dehydrated()
                     ->unique(ignorable: fn($record) => $record)
                     ->maxLength(64),
-//                Forms\Components\TextInput::make('price')
-//                    ->label('Cena')
-//                    ->required()
-//                    ->numeric()
-//                    ->suffix('zł')
-//                    ->rules('regex:/^\d{1,6}(\.\d{0,2})?$/'),
+                Forms\Components\TextInput::make('price')
+                    ->label('Cena')
+                    ->required()
+                    ->numeric()
+                    ->suffix('zł')
+                    ->rules('regex:/^\d{1,6}(\.\d{0,2})?$/'),
+                Forms\Components\Select::make('category')
+                    ->label("Kategorie")
+                    ->options(CategoryTypes::class),
+                Forms\Components\RichEditor::make('description')
+                    ->label('Opis')
+                    ->columnSpanFull(),
+                Forms\Components\Toggle::make('is_available')
+                    ->label('Czy jest na stanie?')
+                    ->default(true)
+                    ->required(),
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcie')
                     ->image()
@@ -61,13 +72,6 @@ class ShopResource extends Resource
                     )
                     ->directory('shop-images')
                     ->preserveFilenames(),
-                Forms\Components\RichEditor::make('description')
-                    ->label('Opis')
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('is_available')
-                    ->label('Czy jest na stanie?')
-                    ->default(true)
-                    ->required(),
             ]);
     }
 
@@ -84,10 +88,13 @@ class ShopResource extends Resource
                     ->label('URL')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-//                Tables\Columns\TextColumn::make('price')
-//                    ->label('Cena')
-//                    ->money('PLN')
-//                    ->sortable(),
+                Tables\Columns\TextColumn::make('price')
+                    ->label('Cena')
+                    ->money('PLN')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('category')
+                    ->label("Kategoria")
+                    ->sortable(),
                 Tables\Columns\IconColumn::make('is_available')
                     ->label('Czy jest na stanie?')
                     ->boolean(),

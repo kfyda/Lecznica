@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\CategoryTypes;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,7 @@ return new class extends Migration
             $table->string('slug', 64);
             $table->decimal('price', 6, 2);
             $table->longText('description')->nullable();
+            $table->enum('category', CategoryTypes::values())->nullable();
 //            $table->string('image_path', 2048)->nullable();
             $table->string('image_path', 2048);
             $table->boolean('is_available')->default(true);

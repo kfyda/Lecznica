@@ -37,7 +37,6 @@
                 </section>
             </div>
         </div>
-
         <!-- Sekcja podobnych produktów -->
         <section class="bg-gray-100 border rounded-lg p-6 mt-12 shadow-lg">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Podobne produkty: </h2>
