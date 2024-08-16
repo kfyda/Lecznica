@@ -5,7 +5,7 @@
 
     <div class="mt-20 p-6">
         <div class="flex mb-10">
-            <aside class="w-1/2 h-[50vh] bg-red-500 flex items-center justify-center">
+            <aside class="flex items-center justify-center">
                 @if($item->image_path)
                     <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}" />
                 @else
