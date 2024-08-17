@@ -63,6 +63,9 @@ class ServiceResource extends Resource
                 Forms\Components\RichEditor::make('description')
                     ->label('Opis')
                     ->required()
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                    ])
                     ->columnSpanFull(),
             ]);
     }

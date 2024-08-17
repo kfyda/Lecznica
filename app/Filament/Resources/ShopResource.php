@@ -58,6 +58,9 @@ class ShopResource extends Resource
                     ->options(CategoryTypes::class),
                 Forms\Components\RichEditor::make('description')
                     ->label('Opis')
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                    ])
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('is_available')
                     ->label('Czy jest na stanie?')

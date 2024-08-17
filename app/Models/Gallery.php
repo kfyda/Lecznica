@@ -13,24 +13,34 @@ class Gallery extends Model
         'image_path',
     ];
 
-    protected $casts = [
-        'image_path' => 'json'
-    ];
+//    protected $casts = [
+//        'image_path' => 'json'
+//    ];
 
     protected static function booted(): void
     {
+//        static::deleted(function (Gallery $gallery) {
+//            foreach ($gallery->image_path as $image) {
+//                Storage::delete("public/$image");
+//            }
+//        });
+
         static::deleted(function (Gallery $gallery) {
-            foreach ($gallery->image_path as $image) {
-                Storage::delete("public/$image");
-            }
+            Storage::delete("public/$gallery->image_path");
         });
 
-        static::updating(function (Gallery $gallery) {
-            $imagesToDelete = array_diff($gallery->getOriginal('image_path'), $gallery->image_path);
+//        static::updating(function (Gallery $gallery) {
+//            $imagesToDelete = array_diff($gallery->getOriginal('image_path'), $gallery->image_path);
+//
+//            foreach ($imagesToDelete as $image) {
+//                Storage::delete("public/$image");
+//            }
+//        });
 
-            foreach ($imagesToDelete as $image) {
-                Storage::delete("public/$image");
-            }
+        static::updating(function (Gallery $gallery) {
+            $originalImg = $gallery->getOriginal('image_path');
+
+            Storage::delete("public/$originalImg");
         });
     }
     public function formatedDate()
@@ -38,8 +48,8 @@ class Gallery extends Model
         return $this->created_at->format('F h:i Y');
     }
 
-    public function getURLImage(string $image)
+    public function getURLImage()
     {
-        return '/storage/' . $image;
+        return '/storage/' . $this->image_path;
     }
 }

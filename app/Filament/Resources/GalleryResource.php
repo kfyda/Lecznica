@@ -32,7 +32,6 @@ class GalleryResource extends Resource
                     ->label('Zdjęcie')
                     ->image()
                     ->imageEditor()
-                    ->multiple()
                     ->reorderable()
                     ->appendFiles()
                     ->openable()

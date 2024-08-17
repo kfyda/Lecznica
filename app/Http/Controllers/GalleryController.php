@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use App\Models\News;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isFalse;
 
 class GalleryController extends Controller
 {
@@ -13,11 +14,10 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $photos = Gallery::query()
-            ->pluck('image_path')
-            ->toArray();
+        $photos = Gallery::all();
 
-        $photos = $photos[0];
+
+
 //        dd($photos);
         return view('gallery.index', compact('photos'));
     }
