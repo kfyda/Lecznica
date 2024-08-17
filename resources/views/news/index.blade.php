@@ -27,7 +27,7 @@
                     <article class="flex flex-col justify-center lg:mt-0 w-full lg:w-2/3">
                         <p class="text-sm text-center text-600 lg:text-right">Dodano: {{ $recentNews->formatedDate() }} <br> O godzinie: {{ $recentNews->formatedTime() }}</p>
                         <h3 class="text-2xl text-center text-green-600 mt-6 md:mt-0 font-semibold mb-2">{{ $recentNews->title }}</h3>
-                        <p class="text-justify text-lg">{!! $recentNews->getShortDescription(48) !!}</p>
+                        <p class="text-justify text-center text-lg">{!! $recentNews->getShortDescription(48) !!}</p>
                         <x-go-to-button :news="$recentNews" class="mt-4" />
                     </article>
                 </div>

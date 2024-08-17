@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -12,7 +13,12 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $photos = Gallery::all();
+        $photos = Gallery::query()
+            ->pluck('image_path')
+            ->toArray();
+
+        $photos = $photos[0];
+//        dd($photos);
         return view('gallery.index', compact('photos'));
     }
 
@@ -35,7 +41,7 @@ class GalleryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Gallery $gallery)
+    public function show(News $gallery)
     {
         //
     }
@@ -43,7 +49,7 @@ class GalleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Gallery $gallery)
+    public function edit(News $gallery)
     {
         //
     }
@@ -51,7 +57,7 @@ class GalleryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(Request $request, News $gallery)
     {
         //
     }
@@ -59,7 +65,7 @@ class GalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Gallery $gallery)
+    public function destroy(News $gallery)
     {
         //
     }

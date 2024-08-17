@@ -66,6 +66,8 @@ class ShopResource extends Resource
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcie')
                     ->image()
+                    ->imageEditor()
+                    ->openable()
                     ->getUploadedFileNameForStorageUsing(
                         fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
                             ->prepend(now()->timestamp),

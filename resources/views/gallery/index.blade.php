@@ -8,8 +8,8 @@
     <div class="p-6">
         <section class="flex flex-wrap gap-2 w-full mt-6 p-6 justify-center bg-white shadow-lg rounded-lg">
             {{--Zdjęcia--}}
-            @foreach($photos as $photo)
-                <img class="md:h-80 rounded-lg cursor-pointer gallery-img" src="{{$photo->getURLImage()}}" alt="" onclick="openModal({{$loop->index}})">
+            @foreach($photos as $key => $value)
+                <img class="md:h-80 m-2 hover:scale-105 transition duration-300 ease-out rounded-lg cursor-pointer gallery-img" src="{{'/storage/' . $value}}" alt="" onclick="openModal({{$loop->index}})">
             @endforeach
         </section>
 

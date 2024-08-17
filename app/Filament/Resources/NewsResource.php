@@ -51,6 +51,8 @@ class NewsResource extends Resource
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcie')
                     ->image()
+                    ->imageEditor()
+                    ->openable()
                     ->getUploadedFileNameForStorageUsing(
                         fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
                             ->prepend(now()->timestamp),
@@ -59,6 +61,9 @@ class NewsResource extends Resource
                     ->preserveFilenames(),
                 Forms\Components\RichEditor::make('description')
                     ->label('Opis')
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                    ])
                     ->required()
                     ->columnSpanFull(),
             ]);

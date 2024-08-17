@@ -51,6 +51,8 @@ class ServiceResource extends Resource
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcia')
                     ->image()
+                    ->imageEditor()
+                    ->openable()
                     ->getUploadedFileNameForStorageUsing(
                         fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
                             ->prepend(now()->timestamp),

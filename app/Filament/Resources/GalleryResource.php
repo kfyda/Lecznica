@@ -31,8 +31,13 @@ class GalleryResource extends Resource
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcie')
                     ->image()
+                    ->imageEditor()
+                    ->multiple()
+                    ->reorderable()
+                    ->appendFiles()
+                    ->openable()
                     ->getUploadedFileNameForStorageUsing(
-                        fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
+                        fn (TemporaryUploadedFile $file): string => (string) str(str_replace(' ', '_', $file->getClientOriginalName()))
                             ->prepend(now()->timestamp),
                     )
                     ->directory('gallery-images')

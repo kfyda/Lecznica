@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class News extends Model
@@ -21,7 +22,18 @@ class News extends Model
         'image_path',
         'description',
     ];
+    protected static function booted(): void
+    {
+        static::deleted(function (News $news) {
+            Storage::delete("public/$news->image_path");
+        });
 
+        static::updating(function (News $news) {
+            $originalImg = $news->getOriginal('image_path');
+
+            Storage::delete("public/$originalImg");
+        });
+    }
     public function getShortDescription(int $words = 48): string
     {
         return Str::words($this->description, $words);
