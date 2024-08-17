@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\News;
 use App\Models\Service;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Carbon::setLocale(app()->getLocale());
+        App::setLocale('pl');
 
         // Pobranie nazw usług i wyświetlenie ich na stronie głównej i pasku nawigacji
         view()->composer(

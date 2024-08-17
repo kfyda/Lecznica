@@ -10,7 +10,7 @@
         @endif
     </div>
     {{--Ogłoszenie 1--}}
-    <article class="w-full p-2 h-64">
+    <article class="w-full p-2 h-64 text-center">
         <h4 class="text-2xl font-bold text-nowrap text-ellipsis overflow-hidden border-b-4 border-green-600">{{ $news->title }}</h4>
         <p class="text-sm text-center mt-2"><time>Dodano: {{ $news->formatedDate() }} <br> O godzinie: {{ $news->formatedTime() }}</time></p>
         <p class="mt-2 text-justify overflow-hidden">{!! $news->getShortDescription(16) !!}</p>

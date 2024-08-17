@@ -69,6 +69,7 @@ class ShopResource extends Resource
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcie')
                     ->image()
+                    ->required()
                     ->imageEditor()
                     ->openable()
                     ->getUploadedFileNameForStorageUsing(

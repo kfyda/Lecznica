@@ -19,7 +19,6 @@ return new class extends Migration
             $table->decimal('price', 6, 2);
             $table->longText('description')->nullable();
             $table->enum('category', CategoryTypes::values())->nullable();
-//            $table->string('image_path', 2048)->nullable();
             $table->string('image_path', 2048);
             $table->boolean('is_available')->default(true);
             $table->timestamps();
