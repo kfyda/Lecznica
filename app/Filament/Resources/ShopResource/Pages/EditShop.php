@@ -5,6 +5,7 @@ namespace App\Filament\Resources\ShopResource\Pages;
 use App\Filament\Resources\ShopResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Str;
 
 class EditShop extends EditRecord
 {
@@ -21,5 +22,12 @@ class EditShop extends EditRecord
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $data['slug'] = now()->timestamp . '-' . Str::slug($data['name']);
+
+        return $data;
     }
 }

@@ -31,6 +31,7 @@ class GalleryResource extends Resource
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcie')
                     ->image()
+                    ->multiple()
                     ->imageEditor()
                     ->reorderable()
                     ->appendFiles()
@@ -55,7 +56,6 @@ class GalleryResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([

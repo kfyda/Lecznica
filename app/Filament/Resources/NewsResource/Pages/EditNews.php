@@ -5,6 +5,7 @@ namespace App\Filament\Resources\NewsResource\Pages;
 use App\Filament\Resources\NewsResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Str;
 
 class EditNews extends EditRecord
 {
@@ -21,5 +22,12 @@ class EditNews extends EditRecord
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $data['slug'] = now()->timestamp . '-' . Str::slug($data['title']);
+
+        return $data;
     }
 }

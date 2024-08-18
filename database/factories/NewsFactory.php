@@ -18,9 +18,10 @@ class NewsFactory extends Factory
     public function definition(): array
     {
         $title = fake()->unique()->words(rand(3,10), true);
+        $slug = now()->timestamp . '-' . Str::slug($title);
         return [
             'title' => $title,
-            'slug' => Str::slug($title),
+            'slug' => $slug,
             'image_path' => fake()->imageUrl,
             'description' => fake()->realText(6400),
             'created_at' => fake()->dateTimeBetween('-36 months')

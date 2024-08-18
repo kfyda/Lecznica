@@ -28,26 +28,10 @@ class NewsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Grid::make(2)->schema([
-                    Forms\Components\TextInput::make('title')
-                        ->label('Tytuł ogłoszenia')
-                        ->required()
-                        ->unique(ignorable: fn($record) => $record)
-                        ->live(onBlur: true)
-                        ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
-                            if ($operation !== 'create') return;
-
-                            $set('slug', Str::slug($state));
-                        })
-                        ->maxLength(128),
-                    Forms\Components\TextInput::make('slug')
-                        ->label('URL')
-                        ->required()
-                        ->disabled()
-                        ->dehydrated()
-                        ->unique(ignorable: fn($record) => $record)
-                        ->maxLength(256),
-                ]),
+                Forms\Components\TextInput::make('title')
+                    ->label('Tytuł ogłoszenia')
+                    ->required()
+                    ->maxLength(128),
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcie')
                     ->image()

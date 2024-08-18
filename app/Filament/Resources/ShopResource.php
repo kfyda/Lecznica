@@ -32,21 +32,7 @@ class ShopResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Nazwa przedmiotu')
                     ->required()
-                    ->unique(ignorable: fn($record) => $record)
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
-                        if ($operation !== 'create') return;
-
-                        $set('slug', Str::slug($state));
-                    })
                     ->maxLength(32),
-                Forms\Components\TextInput::make('slug')
-                    ->label('URL')
-                    ->required()
-                    ->disabled()
-                    ->dehydrated()
-                    ->unique(ignorable: fn($record) => $record)
-                    ->maxLength(64),
                 Forms\Components\TextInput::make('price')
                     ->label('Cena')
                     ->required()

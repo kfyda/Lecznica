@@ -8,6 +8,7 @@ use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Collection;
 use Filament\Notifications\Notification;
+use Illuminate\Support\Str;
 
 class CreateService extends CreateRecord
 {
@@ -40,6 +41,13 @@ class CreateService extends CreateRecord
 
             $this->halt();
         }
+    }
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['slug'] = now()->timestamp . '-' . Str::slug($data['name']);
+
+        return $data;
     }
 
     protected function getCreatedNotification(): ?Notification

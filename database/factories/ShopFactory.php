@@ -19,9 +19,10 @@ class ShopFactory extends Factory
     public function definition(): array
     {
         $name = fake()->unique()->words(rand(1,3), true);
+        $slug = now()->timestamp . '-' . Str::slug($name);
         return [
             'name' => $name,
-            'slug' => Str::slug($name),
+            'slug' => $slug,
             'price' => fake()->randomFloat(2, 0, 200),
             'category' => fake()->randomElement(CategoryTypes::cases()),
             'image_path' => fake()->imageUrl,
