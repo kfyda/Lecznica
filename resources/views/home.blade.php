@@ -22,18 +22,22 @@
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 @if($services->first()) lg:grid-cols-3 @endif">
+                    @if($services->first())
                     <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
                         <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasze
                             specjalizacje</h3>
                         <ul class="mt-4 space-y-2 text-lg">
-                            @foreach($services as $service)
-                                <li class="flex items-center">
-                                    <span class="material-icons text-green-600 mr-2">check_circle</span>{{ $service->name }}
-                                </li>
-                            @endforeach
+
+                                @foreach($services as $service)
+                                    <li class="flex items-center">
+                                        <span class="material-icons text-green-600 mr-2">check_circle</span>{{ $service->name }}
+                                    </li>
+                                @endforeach
+
                         </ul>
                     </div>
+                    @endif
 
                     <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
                         <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasi lekarze</h3>
