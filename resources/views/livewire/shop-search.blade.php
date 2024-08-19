@@ -124,6 +124,6 @@
 </div>
 @else
     <div class="flex items-center justify-center h-[20vh]">
-        <h1 class="text-4xl text-center">Aktualnie nie odnaleziono żadnych przedmiotów w sklepie. <br> Przepraszamy za utrudnienia</h1>
+        <h1 class="text-4xl text-center">Aktualnie nie odnaleziono żadnych przedmiotów w sklepie. <br> Przepraszamy za utrudnienia. &#128575;</h1>
     </div>
 @endif
