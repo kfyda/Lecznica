@@ -36,17 +36,7 @@
             </section>
 
             {{--Pozostałe ogłoszenia--}}
-            <section class="p-4">
-                <h2 class="text-3xl font-semibold mb-4">Zobacz również pozostałe ogłoszenia</h2>
-                <div class="w-full flex grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-between">
-                    @foreach($newsCollection as $news)
-                        <div class="bg-white">
-                            <x-news :news="$news" wire:key="{{ $news->id }}" />
-                        </div>
-                    @endforeach
-                </div>
-            </section>
+            <livewire:news-search :recent-news="$recentNews" />
         </div>
-        {{ $newsCollection->links() }}
     </div>
 </x-app-layout>

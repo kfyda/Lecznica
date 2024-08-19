@@ -17,14 +17,11 @@ class NewsController extends Controller
             ->orderBy('created_at', 'desc')
             ->first();
 
-        $newsCollection = News::query()
-            ->whereNot('id', '=', $recentNews->id)
-            ->orderBy('created_at', 'desc')
-            ->paginate(8);
+
 
 //        dd($newsCollection);
 
-        return view('news.index', compact('recentNews','newsCollection'));
+        return view('news.index', compact('recentNews'));
     }
 
     /**
