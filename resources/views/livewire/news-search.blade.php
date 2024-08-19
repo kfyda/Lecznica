@@ -54,7 +54,9 @@
             <div class="w-full flex grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-between mb-10">
                 @foreach($newsCollection as $news)
                     <div class="bg-white">
-                        <x-news :news="$news" wire:key="{{ $news->id }}" />
+                        <a href="{{ route('news.show', $news) }}">
+                            <x-news :news="$news" wire:key="{{ $news->id }}" />
+                        </a>
                     </div>
                 @endforeach
             </div>
