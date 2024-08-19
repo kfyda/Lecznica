@@ -31,6 +31,7 @@ class ServiceResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Nazwa usługi')
                     ->required()
+                    ->unique()
                     ->maxLength(128),
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Zdjęcia')
