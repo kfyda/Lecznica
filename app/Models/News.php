@@ -56,4 +56,11 @@ class News extends Model
         }
         return '/storage/' . $this->image_path;
     }
+
+    public function scopeSearch($query, $value)
+    {
+        if ($value) {
+            $query->where('title', 'like', "%{$value}%");
+        }
+    }
 }
