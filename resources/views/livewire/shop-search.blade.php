@@ -9,7 +9,7 @@
                 </svg>
                 <input type="text" placeholder="Szukaj..." class="w-full h-10 px-3 rounded-md border-0 focus:ring-0 focus:outline-none" wire:model.live="search" />
             </div>
-            <div class="flex">
+            <div class="flex flex-col gap-y-4 md:gap-y-0 md:flex-row">
                 <!-- Pasek wyboru liczby elementów na stronie -->
                 <div class="relative w-full md:w-1/3 mr-4">
                     <button @click="itemsPerPageOpen = !itemsPerPageOpen" class="flex items-center justify-between w-full md:w-auto px-4 py-2 bg-green-600 text-white font-semibold rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
