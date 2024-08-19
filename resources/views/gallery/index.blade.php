@@ -6,12 +6,18 @@
     <x-header title="Galeria" />
 
     <div class="p-6">
-        <section class="flex flex-wrap gap-2 w-full mt-6 p-6 justify-center bg-white shadow-lg rounded-lg">
-            {{--Zdjęcia--}}
-            @foreach($photos as $photo)
-                <img class="md:h-80 m-2 hover:scale-105 transition duration-300 ease-out rounded-lg cursor-pointer gallery-img" src="{{$photo->getURLImage()}}" alt="" onclick="openModal({{$loop->index}})">
-            @endforeach
-        </section>
+        @if($photos->first())
+            <section class="flex flex-wrap gap-2 w-full mt-6 p-6 justify-center bg-white shadow-lg rounded-lg">
+                {{--Zdjęcia--}}
+                @foreach($photos as $photo)
+                    <img class="md:h-80 m-2 hover:scale-105 transition duration-300 ease-out rounded-lg cursor-pointer gallery-img" src="{{$photo->getURLImage()}}" alt="" onclick="openModal({{$loop->index}})">
+                @endforeach
+            </section>
+        @else
+            <div class="flex items-center justify-center h-[20vh]">
+                <h1 class="text-4xl text-center">Aktualnie nie odnaleziono żadnych zdjęć. <br> Przepraszamy za utrudnienia.</h1>
+            </div>
+        @endif
 
         <!-- Modal -->
         <div id="myModal" class="modal" onclick="closeModal(event)">

@@ -21,22 +21,23 @@
                 <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.*')">
                     {{ __('Ogłoszenia') }}
                 </x-nav-link>
+                @if(!is_null($services->first()))
+                    <x-dropdown align="left" width="48" :active="request()->routeIs('services.*')">
+                        <x-slot name="trigger">
+                            <button>
+                                <div>Usługi</div>
+                            </button>
+                        </x-slot>
 
-                <x-dropdown align="left" width="48" :active="request()->routeIs('services.*')">
-                    <x-slot name="trigger">
-                        <button>
-                            <div>Usługi</div>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        @foreach($services as $service)
-                            <x-dropdown-link :href="route('services.show', $service)" :active="request()->is('uslugi/'.$service->slug)">
-                                {{  $service->name }}
-                            </x-dropdown-link>
-                        @endforeach
-                    </x-slot>
-                </x-dropdown>
+                        <x-slot name="content">
+                            @foreach($services as $service)
+                                <x-dropdown-link :href="route('services.show', $service)" :active="request()->is('uslugi/'.$service->slug)">
+                                    {{  $service->name }}
+                                </x-dropdown-link>
+                            @endforeach
+                        </x-slot>
+                    </x-dropdown>
+                @endif
 
                 <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.*')">
                     {{ __('Katalog produktów') }}
@@ -77,21 +78,23 @@
                 {{ __('Ogłoszenia') }}
             </x-responsive-nav-link>
 
-            <x-responsive-dropdown x-data="{openDropdown: false}" :active="request()->routeIs('services.*')">
-                <x-slot:trigger>
-                    <button @click="openDropdown = ! openDropdown" class="flex items-center">
-                        <div>Usługi</div>
-                    </button>
-                </x-slot:trigger>
+            @if(!is_null($services->first()))
+                <x-responsive-dropdown x-data="{openDropdown: false}" :active="request()->routeIs('services.*')">
+                    <x-slot:trigger>
+                        <button @click="openDropdown = ! openDropdown" class="flex items-center">
+                            <div>Usługi</div>
+                        </button>
+                    </x-slot:trigger>
 
-                <x-slot:content>
-                    @foreach($services as $service)
-                        <x-responsive-nav-link :href="route('services.show', $service)" :active="request()->is('uslugi/'.$service->slug)">
-                            {{ $service->name }}
-                        </x-responsive-nav-link>
-                    @endforeach
-                </x-slot:content>
-            </x-responsive-dropdown>
+                    <x-slot:content>
+                        @foreach($services as $service)
+                            <x-responsive-nav-link :href="route('services.show', $service)" :active="request()->is('uslugi/'.$service->slug)">
+                                {{ $service->name }}
+                            </x-responsive-nav-link>
+                        @endforeach
+                    </x-slot:content>
+                </x-responsive-dropdown>
+            @endif
 
             <x-responsive-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.*')">
                 {{ __('Sklep') }}

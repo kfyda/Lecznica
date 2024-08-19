@@ -29,9 +29,7 @@ class Service extends Model
     protected static function booted(): void
     {
         static::deleted(function (Service $service) {
-            foreach ($service->image_path as $image) {
-                Storage::delete("public/$image");
-            }
+            Storage::delete("public/$service->image_path");
         });
 
         static::updating(function (Service $service) {
