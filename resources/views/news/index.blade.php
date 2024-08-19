@@ -12,8 +12,9 @@
 
                 {{--Najnowsze ogłoszenie--}}
                 <section>
-                    <h2 class="text-4xl font-semibold mb-4">Najnowsze</h2>
-                    <div class="flex flex-col justify-center items-center lg:justify-between gap-x-5 lg:flex-row bg-white p-4 rounded-lg transition duration-[0.3s] ease-out shadow-lg">
+                    <h2 class="text-4xl font-semibold mb-6">Najnowsze</h2>
+                    <a href="{{ route('news.show', $recentNews) }}">
+                    <div class="flex flex-col justify-center items-center lg:justify-between gap-x-5 lg:flex-row bg-white p-4 rounded-lg hover:scale-105 transition duration-[0.3s] ease-out shadow-lg">
                         {{--Zdjęcie--}}
                         @if($recentNews->image_path)
                             <img alt="{{ $recentNews->slug }}" src="{{ $recentNews->getURLImage() }}" class="mx-auto rounded-lg w-full sm:w-1/2 lg:w-auto lg:h-64">
@@ -34,6 +35,7 @@
                             </div>
                         </article>
                     </div>
+                    </a>
                 </section>
 
                 {{--Pozostałe ogłoszenia--}}
