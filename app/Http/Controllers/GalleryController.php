@@ -14,7 +14,9 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $photos = Gallery::all();
+        $photos = Gallery::query()
+            ->orderBy('created_at', 'desc')
+            ->get();
 
 
 

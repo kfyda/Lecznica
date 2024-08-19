@@ -52,6 +52,7 @@ class GalleryResource extends Resource
                 Tables\Columns\ImageColumn::make('image_path')
                     ->label('Zdjęcie'),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
