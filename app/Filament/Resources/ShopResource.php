@@ -11,9 +11,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class ShopResource extends Resource
@@ -32,7 +29,7 @@ class ShopResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Nazwa przedmiotu')
                     ->required()
-                    ->maxLength(32),
+                    ->maxLength(128),
                 Forms\Components\TextInput::make('price')
                     ->label('Cena')
                     ->required()
@@ -41,12 +38,10 @@ class ShopResource extends Resource
                     ->rules('regex:/^\d{1,6}(\.\d{0,2})?$/'),
                 Forms\Components\Select::make('category')
                     ->label("Kategorie")
+                    ->required()
                     ->options(CategoryTypes::class),
-                Forms\Components\RichEditor::make('description')
+                Forms\Components\Textarea::make('description')
                     ->label('Opis')
-                    ->disableToolbarButtons([
-                        'attachFiles',
-                    ])
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('is_available')
                     ->label('Czy jest na stanie?')
@@ -59,7 +54,7 @@ class ShopResource extends Resource
                     ->imageEditor()
                     ->openable()
                     ->getUploadedFileNameForStorageUsing(
-                        fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
+                        fn(TemporaryUploadedFile $file): string => (string)str($file->getClientOriginalName())
                             ->prepend(now()->timestamp),
                     )
                     ->directory('shop-images')

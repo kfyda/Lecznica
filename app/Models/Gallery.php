@@ -19,28 +19,14 @@ class Gallery extends Model
 
     protected static function booted(): void
     {
-//        static::deleted(function (Gallery $gallery) {
-//            foreach ($gallery->image_path as $image) {
-//                Storage::delete("public/$image");
-//            }
-//        });
-
         static::deleted(function (Gallery $gallery) {
             Storage::delete("public/$gallery->image_path");
         });
 
-//        static::updating(function (Gallery $gallery) {
-//            $imagesToDelete = array_diff($gallery->getOriginal('image_path'), $gallery->image_path);
-//
-//            foreach ($imagesToDelete as $image) {
-//                Storage::delete("public/$image");
-//            }
-//        });
-
         static::updating(function (Gallery $gallery) {
             $originalImg = $gallery->getOriginal('image_path');
 
-            Storage::delete("public/$originalImg");
+            if ($originalImg != $gallery->image_path ) Storage::delete("public/$originalImg");
         });
     }
     public function formatedDate()
