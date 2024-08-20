@@ -30,7 +30,7 @@ class NewsImages extends Component
 
     public function getPreviousImage()
     {
-        $arraySize = count($this->news->image_path);
+        $arraySize = $this->getArraySize($this->news->image_path);
 
         if ($arraySize > 0) {
             $this->imgIndex = ($this->imgIndex === 0) ? $arraySize - 1 : $this->imgIndex - 1;
@@ -39,10 +39,15 @@ class NewsImages extends Component
 
     public function getNextImage()
     {
-        $arraySize = count($this->news->image_path);
+        $arraySize = $this->getArraySize($this->news->image_path);
 
         if ($arraySize > 0) {
             $this->imgIndex = ($this->imgIndex === $arraySize - 1) ? 0 : $this->imgIndex + 1;
         }
+    }
+
+    public function getArraySize(array $imgArr): int
+    {
+        return count($imgArr);
     }
 }

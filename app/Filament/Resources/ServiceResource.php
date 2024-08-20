@@ -45,6 +45,8 @@ class ServiceResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->label('Opis')
                     ->required()
+                    ->rows(5)
+                    ->autosize()
                     ->columnSpanFull(),
             ]);
     }
@@ -54,9 +56,7 @@ class ServiceResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
-                    ->label('Zdjęcia')
-//                    ->stacked()
-                    ->limit(5),
+                    ->label('Zdjęcia'),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nazwa usługi')
                     ->searchable(),

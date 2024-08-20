@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Enums\CategoryTypes;
 use App\Models\Shop;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -20,6 +19,7 @@ class ShopSearch extends Component
     public function render()
     {
         $query = Shop::query()
+            ->where('is_available', '=', true)
             ->search($this->search);
 
         if (!empty($this->categoryOption)) {

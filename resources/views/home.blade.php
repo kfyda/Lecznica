@@ -24,19 +24,20 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 @if($services->first()) lg:grid-cols-3 @endif">
                     @if($services->first())
-                    <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
-                        <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasze
-                            specjalizacje</h3>
-                        <ul class="mt-4 space-y-2 text-lg">
+                        <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
+                            <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasze
+                                specjalizacje</h3>
+                            <ul class="mt-4 space-y-2 text-lg">
 
                                 @foreach($services as $service)
                                     <li class="flex items-center">
-                                        <span class="material-icons text-green-600 mr-2">check_circle</span>{{ $service->name }}
+                                        <span
+                                            class="material-icons text-green-600 mr-2">check_circle</span>{{ $service->name }}
                                     </li>
                                 @endforeach
 
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
                     @endif
 
                     <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
@@ -79,7 +80,7 @@
             </div>
         </section>
 
-{{--        Sekcja najnowsze ogłoszenia--}}
+        {{--        Sekcja najnowsze ogłoszenia--}}
         <section class="py-20 relative">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16">
@@ -96,10 +97,13 @@
                 </div>
 
                 <a href="{{ route('news.index') }}">
-                    <div class="absolute text-white flex flex-col items-center w-64 rounded-lg p-2 bg-green-500 bottom-12 left-1/2 -translate-x-1/2 inset-x-0 hover:bg-green-400 hover:scale-105 shadow-lg transition duration-[0.3s] ease-in-out">
+                    <div
+                        class="absolute text-white flex flex-col items-center w-64 rounded-lg p-2 bg-green-500 bottom-12 left-1/2 -translate-x-1/2 inset-x-0 hover:bg-green-400 hover:scale-105 shadow-lg transition duration-[0.3s] ease-in-out">
                         <p class="text-xl font-semibold">Zobacz więcej ogłoszeń</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" class="size-8">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                     </div>
                 </a>

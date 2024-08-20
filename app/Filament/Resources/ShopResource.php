@@ -42,6 +42,8 @@ class ShopResource extends Resource
                     ->options(CategoryTypes::class),
                 Forms\Components\Textarea::make('description')
                     ->label('Opis')
+                    ->rows(5)
+                    ->autosize()
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('is_available')
                     ->label('Czy jest na stanie?')

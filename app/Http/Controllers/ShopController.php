@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shop;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ShopController extends Controller
@@ -23,6 +22,7 @@ class ShopController extends Controller
     {
         $itemCollection = Shop::query()
             ->whereNot('id', '=', $item->id)
+            ->where('is_available', '=', true)
             ->where('category', '=', $item->category)
             ->orderBy('created_at', 'desc')
             ->limit(4)
