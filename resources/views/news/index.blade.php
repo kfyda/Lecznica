@@ -31,9 +31,9 @@
                             @endif
                             {{--Treść--}}
                             <article class="flex flex-col justify-center text-center lg:mt-0 w-full lg:w-2/3">
-                                <p class="text-sm text-center text-600 lg:text-right">
-                                    Dodano: {{ $recentNews->formatedDate() }} <br> O
-                                    godzinie: {{ $recentNews->formatedTime() }}</p>
+                                <p class="text-sm text-center text-600 lg:text-right mb-10">
+                                    Dodano: {{ $recentNews->formatedDate() }} <br>
+                                    O godzinie: {{ $recentNews->formatedTime() }}</p>
                                 <div class="flex flex-col items-center">
                                     <h3 class="text-2xl text-center text-green-600 mt-6 md:mt-0 font-semibold mb-4">{{ $recentNews->title }}</h3>
                                     <p>{!! $recentNews->getShortDescription(48) !!}</p>
