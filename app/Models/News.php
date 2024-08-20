@@ -22,18 +22,28 @@ class News extends Model
         'image_path',
         'description',
     ];
+
+    protected $casts = [
+        'image_path' => 'json'
+    ];
+
     protected static function booted(): void
     {
         static::deleted(function (News $news) {
-            Storage::delete("public/$news->image_path");
+            foreach ($news->image_path as $image) {
+                Storage::delete("public/$image");
+            }
         });
 
         static::updating(function (News $news) {
-            $originalImg = $news->getOriginal('image_path');
+            $imagesToDelete = array_diff($news->getOriginal('image_path'), $news->image_path);
 
-            Storage::delete("public/$originalImg");
+            foreach ($imagesToDelete as $image) {
+                Storage::delete("public/$image");
+            }
         });
     }
+
     public function getShortDescription(int $words = 48): string
     {
         return Str::words($this->description, $words);
@@ -51,10 +61,12 @@ class News extends Model
 
     public function getURLImage()
     {
-        if (str_starts_with($this->image_path, 'http')) {
-            return $this->image_path;
+        foreach ($this->image_path as $image) {
+            if (str_starts_with($image, 'http')) {
+                return $image;
+            }
+            return '/storage/' . $image;
         }
-        return '/storage/' . $this->image_path;
     }
 
     public function scopeSearch($query, $value)

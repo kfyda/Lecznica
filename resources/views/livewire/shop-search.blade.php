@@ -1,5 +1,5 @@
-@if($items->first())
 <div x-data="{ filterOpen: false, itemsPerPageOpen: false, categoryFilterOpen: false, itemsPerPage: 12 }" class="flex w-full p-6 mt-6">
+    @if($items->first())
     <section class="w-full">
         <div class="w-full flex flex-col md:flex-row items-center justify-between bg-gray-100 rounded-lg gap-4 mb-6 p-4 shadow-md">
             <!-- Pasek wyszukiwania -->
@@ -121,9 +121,9 @@
         </div>
         {{ $items->links() }}
     </section>
+    @else
+        <div class="flex items-center justify-center h-[20vh] w-full">
+            <h1 class="text-4xl text-center">Aktualnie nie odnaleziono żadnych przedmiotów w sklepie. <br> Przepraszamy za utrudnienia. &#128575;</h1>
+        </div>
+    @endif
 </div>
-@else
-    <div class="flex items-center justify-center h-[20vh]">
-        <h1 class="text-4xl text-center">Aktualnie nie odnaleziono żadnych przedmiotów w sklepie. <br> Przepraszamy za utrudnienia. &#128575;</h1>
-    </div>
-@endif

@@ -35,7 +35,7 @@ class Service extends Model
         static::updating(function (Service $service) {
             $originalImg = $service->getOriginal('image_path');
 
-            Storage::delete("public/$originalImg");
+            if ($originalImg != $service->image_path ) Storage::delete("public/$originalImg");
         });
     }
     public function getURLImage()

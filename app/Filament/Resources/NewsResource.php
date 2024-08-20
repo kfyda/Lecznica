@@ -10,9 +10,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class NewsResource extends Resource
@@ -36,18 +33,18 @@ class NewsResource extends Resource
                     ->label('Zdjęcie')
                     ->image()
                     ->imageEditor()
+                    ->reorderable()
+                    ->appendFiles()
+                    ->multiple()
                     ->openable()
                     ->getUploadedFileNameForStorageUsing(
-                        fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
+                        fn(TemporaryUploadedFile $file): string => (string)str($file->getClientOriginalName())
                             ->prepend(now()->timestamp),
                     )
                     ->directory('news-images')
                     ->preserveFilenames(),
-                Forms\Components\RichEditor::make('description')
+                Forms\Components\Textarea::make('description')
                     ->label('Opis')
-                    ->disableToolbarButtons([
-                        'attachFiles',
-                    ])
                     ->required()
                     ->columnSpanFull(),
             ]);
@@ -58,7 +55,8 @@ class NewsResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
-                    ->label('Zdjęcie'),
+                    ->label('Zdjęcie')
+                    ->stacked(),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Tytuł ogłoszenia')
                     ->searchable(),

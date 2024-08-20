@@ -32,7 +32,8 @@ class Shop extends Model
 
         static::updating(function (Shop $shop) {
             $originalImg = $shop->getOriginal('image_path');
-            Storage::delete("public/$originalImg");
+
+            if ($originalImg != $shop->image_path ) Storage::delete("public/$originalImg");
         });
     }
     public function formatedDate()

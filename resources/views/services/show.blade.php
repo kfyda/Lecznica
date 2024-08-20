@@ -9,7 +9,7 @@
             <div class="flex flex-col md:flex-row gap-x-10 p-6">
                 <!-- Sekcja ze zdjęciem po lewej stronie -->
                 <div class="md:w-1/2 items-center flex justify-center">
-                    <img alt="{{ $service->slug }}" src="{{ $service->getURLImage() }}" class="rounded-lg shadow-md max-h-[70vh] max-w-[70vw]" />
+                    <img alt="{{ $service->slug }}" src="{{ $service->getURLImage() }}" class="rounded-lg shadow-md max-h-[65vh] max-w-[45vw]" />
                 </div>
 
                 <!-- Sekcja z opisem usługi po prawej stronie -->
