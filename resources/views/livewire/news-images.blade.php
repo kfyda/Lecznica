@@ -4,7 +4,8 @@
         <button wire:click="getPreviousImage()"
                 class="absolute left-0 md:left-24 lg:left-54 md:block opacity-50 hover:opacity-100 transition duration-150 ease-in">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                 stroke="currentColor" class="size-12 xl:size-24">
+                 stroke="currentColor"
+                 class="size-12 xl:size-24 {{ $this->getArraySize($news->image_path) < 2 ? 'hidden' : 'block' }}">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
@@ -14,7 +15,8 @@
         <button wire:click="getNextImage()"
                 class="absolute right-0 md:right-24 lg:right-54 md:block opacity-50 hover:opacity-100 transition duration-150 ease-in">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                 stroke="currentColor" class="size-12 xl:size-24">
+                 stroke="currentColor"
+                 class="size-12 xl:size-24 {{ $this->getArraySize($news->image_path) < 2 ? 'hidden' : 'block' }}">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
         </button>

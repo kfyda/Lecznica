@@ -45,6 +45,8 @@ class ServiceResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->label('Opis')
                     ->required()
+                    ->rows(5)
+                    ->autosize()
                     ->columnSpanFull(),
             ]);
     }
