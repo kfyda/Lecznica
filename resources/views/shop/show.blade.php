@@ -2,12 +2,12 @@
     @section('title', 'Przedmiot ' . $item->name)
 
     <div class="container mx-auto mt-20 p-6">
-        <div class="flex flex-wrap items-start lg:flex-nowrap mb-12 gap-8">
+        <div class="flex flex-wrap md:items-center lg:items-start mx-auto lg:flex-nowrap mb-12 gap-8">
             <!-- Sekcja zdjęcia -->
             <aside class="flex-shrink-0 flex justify-center w-full md:w-1/2">
                 @if($item->image_path)
                     <img alt="{{ $item->slug }}" src="{{ $item->getURLImage() }}"
-                         class="rounded-lg shadow-2xl max-h-[60vh] max-w-[32vw]" />
+                         class="rounded-lg shadow-2xl max-h-[60vh] max-w-[80vw] md:max-w-[33vw]" />
                 @else
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor" class="w-64 h-64 text-gray-400">
@@ -45,16 +45,19 @@
                 </section>
             </div>
         </div>
+
         <!-- Sekcja podobnych produktów -->
-        <section class="bg-gray-100 border rounded-lg p-6 mt-12 shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Podobne produkty: </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                @foreach($itemCollection as $singleItem)
-                    <a href="{{ route('shop.show', $singleItem) }}">
-                        <x-shop-item :item="$singleItem" wire:key="{{ $singleItem->id }}" />
-                    </a>
-                @endforeach
-            </div>
-        </section>
+        @if($itemCollection->first())
+            <section class="bg-gray-100 border rounded-lg p-6 mt-12 shadow-lg">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Podobne produkty: </h2>
+                <div class="flex flex-wrap justify-center gap-6">
+                    @foreach($itemCollection as $singleItem)
+                        <a href="{{ route('shop.show', $singleItem) }}">
+                            <x-shop-item :item="$singleItem" wire:key="{{ $singleItem->id }}" />
+                        </a>
+                    @endforeach
+                </div>
+            </section>
+        @endif
     </div>
 </x-app-layout>
