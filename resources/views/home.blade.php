@@ -80,22 +80,22 @@
             </div>
         </section>
 
-        {{--        Sekcja najnowsze ogłoszenia--}}
+        {{-- Sekcja najnowsze ogłoszenia --}}
         <section class="py-20 relative">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-6xl font-extrabold text-[#333333] text-green-700">Najnowsze ogłoszenia</h2>
                     <p class="mt-6 text-xl max-w-2xl mx-auto leading-relaxed text-[#333333]">
-                        Bądź na bieżąco z aktualnymi wydarzeniami.
+                        Bądź na bieżąco z aktualnościami.
                     </p>
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
                     @foreach($newsCollection as $news)
-                        <x-news :news="$news" wire:key="{{ $news->id }}" />
+                        <a href="{{ route('news.show', ['news' => $news->slug]) }}" class="block"> <!-- Użycie slug zamiast id -->
+                            <x-news :news="$news" wire:key="{{ $news->id }}" />
+                        </a>
                     @endforeach
                 </div>
-
                 <a href="{{ route('news.index') }}">
                     <div
                         class="absolute text-white flex flex-col items-center w-64 rounded-lg p-2 bg-green-500 bottom-12 left-1/2 -translate-x-1/2 inset-x-0 hover:bg-green-400 hover:scale-105 shadow-lg transition duration-[0.3s] ease-in-out">
