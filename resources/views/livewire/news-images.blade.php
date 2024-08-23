@@ -1,5 +1,5 @@
 <div
-    class="relative flex justify-center items-center bg-gradient-to-b from-gray-900 via-gray-800 text-white to-black gap-x-12 mt-20">
+    class="relative flex justify-center items-center bg-gradient-to-b from-gray-900 via-gray-800 text-white to-black gap-x-12 mt-20 h-[66vh] w-[100vw]">
     @if(!empty($news->image_path) && is_array($news->image_path) && count($news->image_path) > 0)
         <button wire:click="getPreviousImage()"
                 class="absolute left-0 md:left-24 lg:left-54 md:block opacity-50 hover:opacity-100 transition duration-150 ease-in">
