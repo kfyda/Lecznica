@@ -38,6 +38,7 @@ class ShopResource extends Resource
                     ->rules('regex:/^\d{1,6}(\.\d{0,2})?$/'),
                 Forms\Components\Select::make('category')
                     ->label("Kategorie")
+                    ->native(false)
                     ->required()
                     ->options(CategoryTypes::class),
                 Forms\Components\Textarea::make('description')

@@ -1,5 +1,5 @@
 <div x-data="{ itemsPerPageOpen: false }" class="flex mx-auto">
-    @if($newsCollection->first())
+    @if($newsCollection->isNotEmpty())
         <section class="mt-16">
             <h2 class="text-3xl font-semibold">Zobacz również pozostałe ogłoszenia</h2>
             <div

@@ -30,16 +30,20 @@ class News extends Model
     protected static function booted(): void
     {
         static::deleted(function (News $news) {
-            foreach ($news->image_path as $image) {
-                Storage::delete("public/$image");
+            if ($news->image_path) {
+                foreach ($news->image_path as $image) {
+                    Storage::delete("public/$image");
+                }
             }
         });
 
         static::updating(function (News $news) {
-            $imagesToDelete = array_diff($news->getOriginal('image_path'), $news->image_path);
+            if ($news->getOriginal('image_path') !== null) {
+                $imagesToDelete = array_diff($news->getOriginal('image_path'), $news->image_path);
 
-            foreach ($imagesToDelete as $image) {
-                Storage::delete("public/$image");
+                foreach ($imagesToDelete as $image) {
+                    Storage::delete("public/$image");
+                }
             }
         });
     }

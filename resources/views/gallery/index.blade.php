@@ -6,7 +6,7 @@
     <x-header title="Galeria" />
 
     <div class="p-6">
-        @if($photos->first())
+        @if($photos->isNotEmpty())
             <section class="flex flex-wrap gap-2 w-full mt-6 p-6 justify-center bg-white shadow-lg rounded-lg">
                 {{--Zdjęcia--}}
                 @foreach($photos as $photo)

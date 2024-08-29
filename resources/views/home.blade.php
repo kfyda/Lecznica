@@ -22,8 +22,8 @@
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 @if($services->first()) lg:grid-cols-3 @endif">
-                    @if($services->first())
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 @if($services->isNotEmpty()) lg:grid-cols-3 @endif">
+                    @if($services->isNotEmpty())
                         <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
                             <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasze
                                 specjalizacje</h3>
@@ -81,33 +81,35 @@
         </section>
 
         {{-- Sekcja najnowsze ogłoszenia --}}
-        <section class="py-20 relative">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-6xl font-extrabold text-[#333333] text-green-700">Najnowsze ogłoszenia</h2>
-                    <p class="mt-6 text-xl max-w-2xl mx-auto leading-relaxed text-[#333333]">
-                        Bądź na bieżąco z aktualnościami.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
-                    @foreach($newsCollection as $news)
-                        <a href="{{ route('news.show', ['news' => $news->slug]) }}" class="block"> <!-- Użycie slug zamiast id -->
-                            <x-news :news="$news" wire:key="{{ $news->id }}" />
-                        </a>
-                    @endforeach
-                </div>
-                <a href="{{ route('news.index') }}">
-                    <div
-                        class="absolute text-white flex flex-col items-center w-64 rounded-lg p-2 bg-green-500 bottom-12 left-1/2 -translate-x-1/2 inset-x-0 hover:bg-green-400 hover:scale-105 shadow-lg transition duration-[0.3s] ease-in-out">
-                        <p class="text-xl font-semibold">Zobacz więcej ogłoszeń</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                             stroke="currentColor" class="size-8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
+        @if($newsCollection->isNotEmpty())
+            <section class="py-20 relative">
+                <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-6xl font-extrabold text-[#333333] text-green-700">Najnowsze ogłoszenia</h2>
+                        <p class="mt-6 text-xl max-w-2xl mx-auto leading-relaxed text-[#333333]">
+                            Bądź na bieżąco z aktualnościami.
+                        </p>
                     </div>
-                </a>
-            </div>
-        </section>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
+                        @foreach($newsCollection as $news)
+                            <a href="{{ route('news.show', ['news' => $news->slug]) }}" class="block"> <!-- Użycie slug zamiast id -->
+                                <x-news :news="$news" wire:key="{{ $news->id }}" />
+                            </a>
+                        @endforeach
+                    </div>
+                    <a href="{{ route('news.index') }}">
+                        <div
+                            class="absolute text-white flex flex-col items-center w-64 rounded-lg p-2 bg-green-500 bottom-12 left-1/2 -translate-x-1/2 inset-x-0 hover:bg-green-400 hover:scale-105 shadow-lg transition duration-[0.3s] ease-in-out">
+                            <p class="text-xl font-semibold">Zobacz więcej ogłoszeń</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                 stroke="currentColor" class="size-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        @endif
     </div>
 </x-app-layout>

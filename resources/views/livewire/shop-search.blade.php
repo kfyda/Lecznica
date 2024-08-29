@@ -153,7 +153,7 @@
             </div>
         </div>
 
-        @if($items->first())
+        @if($items->isNotEmpty())
             <!-- Reszta kodu pozostaje bez zmian -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
                 @foreach($items as $item)
