@@ -29,8 +29,7 @@ Projekt został zaprojektowany wykorzystując następujące technologie:
 
 ## Funkcje
 
-- **Zarządzanie wizytami**: Użytkownicy mogą rezerwować wizyty dla swoich zwierząt oraz przeglądać historię wizyt.
-- **Panel administracyjny**: Umożliwia pracownikom kliniki zarządzanie danymi pacjentów, wizytami oraz dostępem do zasobów aplikacji.
+- **Panel administracyjny**: Umożliwia pracownikom kliniki zarządzanie stroną galerii, ogłoszeń oraz produktów w sklepie.
 - **Responsywny design**: Strona dostosowuje się do różnych rozmiarów ekranów, zapewniając optymalne doświadczenie użytkownika na urządzeniach mobilnych i stacjonarnych.
 
 ## Kontrybutorzy
