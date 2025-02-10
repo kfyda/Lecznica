@@ -28,11 +28,11 @@
                     <div class="mt-5 flex items-center gap-4">
                         <div class="flex gap-4">
                             <h2 class="text-lg">Kategoria: </h2>
-                            <p class="bg-green-500 rounded-md px-2 py-1 text-white font-semibold">{{ $item->category }}</p>
+                            <p class="bg-green-500 rounded-md px-2 py-1 text-white font-semibold">{{ $item->category->name }}</p>
                         </div>
                         <div class="flex gap-4">
                             <h2 class="text-lg">Zwierzę: </h2>
-                            <p class="bg-yellow-400 rounded-md px-2 py-1 text-white font-semibold">{{ $item->animal_type }}</p>
+                            <p class="bg-yellow-400 rounded-md px-2 py-1 text-white font-semibold">{{ $item->animal->name }}</p>
                         </div>
                     </div>
                 </section>

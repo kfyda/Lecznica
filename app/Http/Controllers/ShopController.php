@@ -23,7 +23,8 @@ class ShopController extends Controller
         $itemCollection = Shop::query()
             ->whereNot('id', '=', $item->id)
             ->where('is_available', '=', true)
-            ->where('category', '=', $item->category)
+            ->where('category_id', '=', $item->category_id)
+            ->where('animal_id', '=', $item->animal_id)
             ->orderBy('created_at', 'desc')
             ->limit(4)
             ->get();

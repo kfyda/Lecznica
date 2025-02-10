@@ -40,28 +40,33 @@
                         </div>
                     @endif
 
-                    <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
-                        <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasi lekarze</h3>
-                        <ul class="mt-4 space-y-4 text-lg">
-                            <li>
-                                <strong>Janusz Soczek</strong> – Specjalista w dziedzinie chirurgii tkanek miękkich oraz
-                                ortopedii. Jego wiedza i doświadczenie są fundamentem naszej placówki.
-                            </li>
-                            <li class="flex justify-center mt-3">
-                                <img src="{{ asset('Images/soczek_janusz1.jpg') }}" alt="Janusz Soczek"
-                                     class="w-40 h-40 rounded-full shadow-lg">
-                            </li>
-                            <li>
-                                <strong>Wioletta Klara Soczek</strong> – Ekspertka w dziedzinie dermatologii i
-                                okulistyki. Jej empatia i profesjonalizm sprawiają, że każde zwierzę czuje się u nas
-                                bezpiecznie.
-                            </li>
-                            <li class="flex justify-center mt-3">
-                                <img src="{{ asset('Images/pies6.jpg') }}" alt="Wioletta Klara Soczek"
-                                     class="w-40 h-40 rounded-full shadow-lg">
-                            </li>
-                        </ul>
-                    </div>
+                <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
+                    <h3 class="text-4xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasi lekarze</h3>
+                    <ul class="mt-4 space-y-4 text-lg">
+                        <li class="text-center">
+                            <strong>Dr. Janusz Soczek</strong>
+                        </li>
+                        <li class="flex justify-center mt-3">
+                            <img src="{{ asset('Images/soczek_janusz1.jpg') }}" alt="Janusz Soczek"
+                                class="w-40 h-40 rounded-full shadow-lg">
+                        </li>
+                        <li class="text-center">
+                            <strong>Dr. Wioletta Klara Soczek</strong>
+                        </li>
+                        <li class="flex justify-center mt-3">
+                            <img src="{{ asset('Images/pies6.jpg') }}" alt="Wioletta Klara Soczek"
+                                class="w-40 h-40 rounded-full shadow-lg">
+                        </li>
+                        <li class="text-center">
+                            <strong>Dr. Ihor Ihorowski</strong>
+                        </li>
+                        <li class="flex justify-center mt-3">
+                            <img src="{{ asset('Images/soczek_janusz1.jpg') }}" alt="Janusz Soczek"
+                                class="w-40 h-40 rounded-full shadow-lg">
+                        </li>
+                    </ul>
+                </div>
+
 
                     <div class="bg-white text-[#1e212b] p-8 rounded-lg shadow-lg">
                         <h3 class="text-3xl font-bold mb-4 border-b-4 border-green-600 inline-block">Nasza misja</h3>

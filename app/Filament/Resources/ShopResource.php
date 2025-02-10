@@ -31,22 +31,14 @@ class ShopResource extends Resource
                     ->label('Nazwa przedmiotu')
                     ->required()
                     ->maxLength(128),
-                Forms\Components\TextInput::make('price')
-                    ->label('Cena')
-                    ->required()
-                    ->numeric()
-                    ->suffix('zł')
-                    ->rules('regex:/^\d{1,6}(\.\d{0,2})?$/'),
-                Forms\Components\Select::make('category')
-                    ->label("Kategorie")
-                    ->native(false)
-                    ->required()
-                    ->options(CategoryTypes::class),
-                Forms\Components\Select::make('animal_type')
-                    ->label("Zwierzę")
-                    ->native(false)
-                    ->required()
-                    ->options(AnimalTypes::class),
+                Forms\Components\Select::make('category_id')
+                    ->label("Kategoria")
+                    ->relationship('category', 'name')
+                    ->required(),
+                Forms\Components\Select::make('animal_id')
+                    ->label("Zwierzęta")
+                    ->relationship('animal', 'name')
+                    ->required(),
                 Forms\Components\Textarea::make('description')
                     ->label('Opis')
                     ->rows(5)
@@ -84,15 +76,13 @@ class ShopResource extends Resource
                     ->label('URL')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('price')
-                    ->label('Cena')
-                    ->money('PLN')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('category')
+                Tables\Columns\TextColumn::make('category.name')
                     ->label("Kategoria")
+                    ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('animal_type')
-                    ->label("Zwierzę")
+                Tables\Columns\TextColumn::make('animal.name')
+                    ->label("Zwierzęta")
+                    ->numeric()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_available')
                     ->label('Czy jest na stanie?')

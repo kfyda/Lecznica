@@ -17,16 +17,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-//        User::factory()->create([
-//            'name' => 'Test User',
-//            'email' => 'test@example.com',
-//        ]);
-
-        News::factory(20)->create();
-        Shop::factory(40)->create();
+        //        User::factory()->create([
+        //            'name' => 'Test User',
+        //            'email' => 'test@example.com',
+        //        ]);
 
         $this->call([
             ServiceSeeder::class,
+            CategorySeeder::class,
+            AnimalSeeder::class
         ]);
+
+        News::factory(20)->create();
+        Shop::factory(40)->create();
     }
 }

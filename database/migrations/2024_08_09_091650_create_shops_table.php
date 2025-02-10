@@ -16,10 +16,8 @@ return new class extends Migration {
             $table->id();
             $table->string('name', 128);
             $table->string('slug')->unique();
-            $table->decimal('price', 6, 2);
+            // $table->decimal('price', 6, 2);
             $table->longText('description')->nullable();
-            $table->enum('animal_type', AnimalTypes::values());
-            $table->enum('category', CategoryTypes::values());
             $table->string('image_path', 2048);
             $table->boolean('is_available')->default(true);
             $table->timestamps();

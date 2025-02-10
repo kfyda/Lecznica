@@ -37,7 +37,7 @@ class GalleryResource extends Resource
                     ->appendFiles()
                     ->openable()
                     ->getUploadedFileNameForStorageUsing(
-                        fn (TemporaryUploadedFile $file): string => (string) str(str_replace(' ', '_', $file->getClientOriginalName()))
+                        fn(TemporaryUploadedFile $file): string => (string) str(str_replace(' ', '_', $file->getClientOriginalName()))
                             ->prepend(now()->timestamp),
                     )
                     ->directory('gallery-images')

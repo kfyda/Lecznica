@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use App\Enums\AnimalTypes;
-use App\Enums\CategoryTypes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 
 class Shop extends Model
@@ -16,17 +15,13 @@ class Shop extends Model
         'name',
         'slug',
         'price',
-        'category',
-        'animal_type',
+        'category_id',
+        'animal_id',
         'image_path',
         'description',
         'is_available'
     ];
 
-    protected $casts = [
-        'category' => CategoryTypes::class,
-        'animal_type' => AnimalTypes::class
-    ];
     protected static function booted(): void
     {
         static::deleted(function (Shop $shop) {
@@ -62,5 +57,15 @@ class Shop extends Model
         if ($value) {
             $query->where('name', 'like', "%{$value}%");
         }
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function animal(): BelongsTo
+    {
+        return $this->belongsTo(Animal::class);
     }
 }

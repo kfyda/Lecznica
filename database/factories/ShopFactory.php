@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Enums\AnimalTypes;
 use App\Enums\CategoryTypes;
+use App\Models\Animal;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -24,9 +26,9 @@ class ShopFactory extends Factory
         return [
             'name' => $name,
             'slug' => $slug,
-            'price' => fake()->randomFloat(2, 0, 200),
-            'category' => fake()->randomElement(CategoryTypes::cases()),
-            'animal_type' => fake()->randomElement(AnimalTypes::cases()),
+            // 'price' => fake()->randomFloat(2, 0, 200),
+            'category_id' => Category::inRandomOrder()->first()->id,
+            'animal_id' => Animal::inRandomOrder()->first()->id,
             'image_path' => fake()->imageUrl,
             'description' => fake()->realText(500),
             'is_available' => fake()->boolean(80),

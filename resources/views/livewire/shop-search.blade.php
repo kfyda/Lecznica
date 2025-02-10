@@ -23,7 +23,7 @@
                         Zwierzęta
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                              stroke="currentColor" class="ml-2 w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
                     <div x-show="animalFilterOpen" @click.away="animalFilterOpen = false" x-cloak
@@ -41,16 +41,19 @@
                                     Wszystkie
                                 </button>
                             </li>
-                            @foreach(\App\Enums\AnimalTypes::values() as $animal)
-                                <li wire:key="{{ $animal }}">
-                                    <button wire:click="$set('animalOption', '{{ $animal }}')"
+                            @foreach($animals as $animal)
+                                <li wire:key="{{ $animal->id }}">
+                                    <button wire:click="$set('animalOption', '{{ $animal->id }}')"
                                             @click="animalFilterOpen = false"
-                                            class="block px-4 py-2 text-black font-medium hover:bg-gray-100 w-full text-left">{{ $animal }}</button>
+                                            class="block px-4 py-2 text-black font-medium hover:bg-gray-100 w-full text-left">
+                                        {{ $animal->name }}
+                                    </button>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
+
 
                 <!-- Filtr kategorii -->
                 <div class="relative w-full md:w-1/3 mr-4">
@@ -59,7 +62,7 @@
                         Kategorie
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                              stroke="currentColor" class="ml-2 w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
                     <div x-show="categoryFilterOpen" @click.away="categoryFilterOpen = false" x-cloak
@@ -77,16 +80,19 @@
                                     Wszystkie
                                 </button>
                             </li>
-                            @foreach(\App\Enums\CategoryTypes::values() as $category)
-                                <li wire:key="{{ $category }}">
-                                    <button wire:click="$set('categoryOption', '{{ $category }}')"
+                            @foreach($categories as $category)
+                                <li wire:key="{{ $category->id }}">
+                                    <button wire:click="$set('categoryOption', '{{ $category->id }}')"
                                             @click="categoryFilterOpen = false"
-                                            class="block px-4 py-2 text-black font-medium hover:bg-gray-100 w-full text-left">{{ $category }}</button>
+                                            class="block px-4 py-2 text-black font-medium hover:bg-gray-100 w-full text-left">
+                                        {{ $category->name }}
+                                    </button>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
+
 
                 <!-- Pasek wyboru liczby elementów na stronie -->
                 <div class="relative w-full md:w-1/3 mr-4">
