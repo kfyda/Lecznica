@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\AnimalTypes;
 use App\Enums\CategoryTypes;
 use App\Filament\Resources\ShopResource\Pages;
 use App\Filament\Resources\ShopResource\RelationManagers;
@@ -41,6 +42,11 @@ class ShopResource extends Resource
                     ->native(false)
                     ->required()
                     ->options(CategoryTypes::class),
+                Forms\Components\Select::make('animal_type')
+                    ->label("Zwierzę")
+                    ->native(false)
+                    ->required()
+                    ->options(AnimalTypes::class),
                 Forms\Components\Textarea::make('description')
                     ->label('Opis')
                     ->rows(5)
@@ -84,6 +90,9 @@ class ShopResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('category')
                     ->label("Kategoria")
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('animal_type')
+                    ->label("Zwierzę")
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_available')
                     ->label('Czy jest na stanie?')

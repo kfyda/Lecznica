@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\AnimalTypes;
 use App\Enums\CategoryTypes;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -18,13 +19,14 @@ class ShopFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->unique()->words(rand(1,3), true);
+        $name = fake()->unique()->words(rand(1, 3), true);
         $slug = now()->timestamp . '-' . Str::slug($name);
         return [
             'name' => $name,
             'slug' => $slug,
             'price' => fake()->randomFloat(2, 0, 200),
             'category' => fake()->randomElement(CategoryTypes::cases()),
+            'animal_type' => fake()->randomElement(AnimalTypes::cases()),
             'image_path' => fake()->imageUrl,
             'description' => fake()->realText(500),
             'is_available' => fake()->boolean(80),

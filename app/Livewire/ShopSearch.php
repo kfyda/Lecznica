@@ -13,6 +13,7 @@ class ShopSearch extends Component
     public string $search = '';
     public string $sortOption = 'latest'; // Domyślna opcja sortowania
     public string $categoryOption = ''; // Domyślna opcja bez filtrowania kategorii
+    public string $animalOption = ''; // Domyślna opcja bez filtrowania zwierząt
     public int $itemsPerPage = 12; // Domyślna liczba elementów na stronę
     public bool $showAll = false; // Flaga dla opcji "wyświetl wszystko"
 
@@ -24,6 +25,10 @@ class ShopSearch extends Component
 
         if (!empty($this->categoryOption)) {
             $query->where('category', '=', $this->categoryOption);
+        }
+
+        if (!empty($this->animalOption)) {
+            $query->where('animal_type', '=', $this->animalOption);
         }
 
         switch ($this->sortOption) {
@@ -62,6 +67,11 @@ class ShopSearch extends Component
     }
 
     public function updatedCategoryOption()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedAnimalOption()
     {
         $this->resetPage();
     }

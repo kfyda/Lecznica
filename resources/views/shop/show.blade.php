@@ -26,8 +26,14 @@
                     </h1>
                     <div class="h-1 w-24 bg-green-500 rounded-full"></div>
                     <div class="mt-5 flex items-center gap-4">
-                        <h2 class="text-lg">Kategoria: </h2>
-                        <p class="bg-green-500 rounded-md px-2 py-1 text-white font-semibold">{{ $item->category }}</p>
+                        <div class="flex gap-4">
+                            <h2 class="text-lg">Kategoria: </h2>
+                            <p class="bg-green-500 rounded-md px-2 py-1 text-white font-semibold">{{ $item->category }}</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <h2 class="text-lg">Zwierzę: </h2>
+                            <p class="bg-yellow-400 rounded-md px-2 py-1 text-white font-semibold">{{ $item->animal_type }}</p>
+                        </div>
                     </div>
                 </section>
 
@@ -36,13 +42,13 @@
                     <p>{!! $item->description !!}</p>
                 </article>
 
-                <!-- Cena -->
+                {{-- <!-- Cena -->
                 <section class="mt-8 w-full">
                     <div
                         class=" text-green-600 text-3xl font-semibold py-4 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
                         Cena w sklepie: {{ $item->getPrice() }}
                     </div>
-                </section>
+                </section> --}}
             </div>
         </div>
 

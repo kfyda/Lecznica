@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\AnimalTypes;
 use App\Enums\CategoryTypes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,13 +17,15 @@ class Shop extends Model
         'slug',
         'price',
         'category',
+        'animal_type',
         'image_path',
         'description',
         'is_available'
     ];
 
     protected $casts = [
-        'category' => CategoryTypes::class
+        'category' => CategoryTypes::class,
+        'animal_type' => AnimalTypes::class
     ];
     protected static function booted(): void
     {
@@ -33,7 +36,7 @@ class Shop extends Model
         static::updating(function (Shop $shop) {
             $originalImg = $shop->getOriginal('image_path');
 
-            if ($originalImg != $shop->image_path ) Storage::delete("public/$originalImg");
+            if ($originalImg != $shop->image_path) Storage::delete("public/$originalImg");
         });
     }
     public function formatedDate()
@@ -49,7 +52,7 @@ class Shop extends Model
         return '/storage/' . $this->image_path;
     }
 
-    public function getPrice():string
+    public function getPrice(): string
     {
         return str_replace('.', ',', $this->price) . ' zł';
     }
